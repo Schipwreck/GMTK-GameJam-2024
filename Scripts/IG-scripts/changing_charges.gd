@@ -13,3 +13,5 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("shrinkRay"):
 		shrink_charges -= 1
 		label.text = str("You have ") + str(shrink_charges) + str(" shrink charges left")
+		if shrink_charges <= 0:
+			label.text = str("You have 0 shrink charges left")
