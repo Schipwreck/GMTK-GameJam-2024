@@ -20,12 +20,11 @@ var item_stored = null
 func set_color(a_state = States.DEFAULT) -> void:
 	match a_state:
 		States.DEFAULT:
-			filter.color = Color(Color.WHITE, 0.2)
+			filter.color = Color(Color.WHITE, 0.075)
 		States.TAKEN:
 			filter.color = Color(Color.RED, 0.2)
 		States.FREE:
 			filter.color = Color(Color.GREEN, 0.2)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
