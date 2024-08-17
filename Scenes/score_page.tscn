@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck2wdewkt3an5"]
+
+[ext_resource type="Script" path="res://Scripts/global.gd" id="1_se2r3"]
+[ext_resource type="Script" path="res://Scripts/score_page.gd" id="2_t6xn7"]
+
+[node name="ScorePage" type="Node2D"]
+script = ExtResource("2_t6xn7")
+
+[node name="Continue" type="Button" parent="."]
+offset_left = 530.0
+offset_top = 385.0
+offset_right = 655.0
+offset_bottom = 443.0
+text = "Continue"
+script = ExtResource("1_se2r3")
+
+[node name="Score" type="Label" parent="."]
+offset_left = 510.0
+offset_top = 303.0
+offset_right = 691.0
+offset_bottom = 370.0
+theme_override_font_sizes/font_size = 48
+text = "Score: 0"
+script = ExtResource("1_se2r3")
+
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]

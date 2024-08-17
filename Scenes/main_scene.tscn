@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://p06og2jhhk8r"]
+[gd_scene load_steps=3 format=3 uid="uid://p06og2jhhk8r"]
 
 [ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_pcalb"]
+[ext_resource type="Script" path="res://Scripts/global.gd" id="2_m23vh"]
 
 [node name="Main Scene" type="Node2D"]
 script = ExtResource("1_pcalb")
@@ -20,5 +21,12 @@ offset_top = 571.0
 offset_right = 1132.0
 offset_bottom = 638.0
 text = "Pack It Up!"
+script = ExtResource("2_m23vh")
+
+[node name="Score" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Score: 0"
+script = ExtResource("2_m23vh")
 
 [connection signal="pressed" from="PackitupButton" to="." method="_on_packitup_button_pressed"]
