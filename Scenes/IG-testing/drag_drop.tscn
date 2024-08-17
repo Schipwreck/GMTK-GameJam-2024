@@ -7,6 +7,7 @@
 size = Vector2(99, 99)
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(403, 152)
 script = ExtResource("1_n6gnu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -17,7 +18,11 @@ texture = ExtResource("2_pqm52")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1.5, -0.5)
+z_index = 1
+position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_m1rf8")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_shape_entered" from="Area2D" to="." method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="Area2D" to="." method="_on_area_2d_mouse_shape_exited"]
