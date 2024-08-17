@@ -31,4 +31,7 @@ func _on_continue_pressed(_delta):
 		
 		# change scene to next level
 		get_tree().change_scene_to_file(string)
+		
+		# debug msg
+		print("Level changed")
 	 
