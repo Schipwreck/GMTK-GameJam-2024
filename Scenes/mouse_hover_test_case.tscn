@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://l1iapy4m12v4"]
+
+[ext_resource type="Script" path="res://scripts/mouse_hovering_object.gd" id="1_kg0ff"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gylpq"]
+size = Vector2(90.5, 45.5)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(40, 29)
+zoom = Vector2(3, 3)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-4, -3)
+
+[node name="Label" type="Label" parent="Area2D"]
+offset_top = 12.0
+offset_right = 84.0
+offset_bottom = 51.0
+text = "FUCK"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(43.75, 32.25)
+shape = SubResource("RectangleShape2D_gylpq")
+script = ExtResource("1_kg0ff")
