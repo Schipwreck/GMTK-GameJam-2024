@@ -1,6 +1,6 @@
 extends Control
 
-@onready var slot_scene = preload("res://Scenes/slot.tscn")
+@onready var slot_scene = preload("res://Scenes/Grid/slot.tscn")
 @onready var grid_container = $ColorRect/MarginContainer/VBoxContainer/ScrollContainer/GridContainer
 
 var grid_array := []
