@@ -3,7 +3,7 @@ extends Node2D
 # callback function
 func _process(_delta):
 	# display overall score
-	$Score.text = "Score: %d" % Global.overallScore
+	$TextureRect/MarginContainer2/Score.text = "Score: %d" % Global.overallScore
 
 func _on_packitup_button_pressed():
 	# debug message
