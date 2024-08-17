@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdiwsxpeg3fwc"]
+
+[ext_resource type="Texture2D" uid="uid://dd3ppdnkci0bj" path="res://Assets/jn_tempassets/inventory_texture.png" id="1_2w3a3"]
+[ext_resource type="Script" path="res://Scripts/slot.gd" id="2_vetmi"]
+
+[node name="Slot" type="TextureRect"]
+custom_minimum_size = Vector2(50, 50)
+texture = ExtResource("1_2w3a3")
+expand_mode = 1
+script = ExtResource("2_vetmi")
+
+[node name="StatusFilter" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.0745098)
