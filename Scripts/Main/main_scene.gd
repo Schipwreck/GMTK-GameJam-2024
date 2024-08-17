@@ -13,4 +13,4 @@ func _on_packitup_button_pressed():
 	Global.overallScore += 1
 	
 	# change scene
-	get_tree().change_scene_to_file("res://Scenes/score_page.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Score/score_page.tscn")

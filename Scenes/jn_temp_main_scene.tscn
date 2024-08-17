@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://laaxuflsthvq"]
+[gd_scene load_steps=2 format=3 uid="uid://chpmjns2a5gl7"]
 
-[ext_resource type="PackedScene" uid="uid://br2k2epsyut04" path="res://Scenes/inventory_grid.tscn" id="1_c1f60"]
+[ext_resource type="PackedScene" uid="uid://br2k2epsyut04" path="res://Scenes/Grid/inventory_grid.tscn" id="1_c1f60"]
 
 [node name="Main" type="Node2D"]
 

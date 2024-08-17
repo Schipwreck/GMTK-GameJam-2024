@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://pc52mcamwith"]
 
-[ext_resource type="Script" path="res://Scripts/main_scene_3.gd" id="1_11dn5"]
-[ext_resource type="Script" path="res://Scripts/global.gd" id="2_unav6"]
+[ext_resource type="Script" path="res://Scripts/Main/main_scene_3.gd" id="1_hgl52"]
+[ext_resource type="Script" path="res://Scripts/global.gd" id="2_vd3ud"]
 
 [node name="main_scene3" type="Node2D"]
-script = ExtResource("1_11dn5")
+script = ExtResource("1_hgl52")
 
 [node name="PackitupButton" type="Button" parent="."]
 offset_left = 942.0
@@ -12,7 +12,7 @@ offset_top = 556.0
 offset_right = 1137.0
 offset_bottom = 641.0
 text = "Pack It Up!"
-script = ExtResource("2_unav6")
+script = ExtResource("2_vd3ud")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 391.0
@@ -28,6 +28,6 @@ vertical_alignment = 1
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Score: 0"
-script = ExtResource("2_unav6")
+script = ExtResource("2_vd3ud")
 
 [connection signal="pressed" from="PackitupButton" to="." method="_on_packitup_button_pressed"]

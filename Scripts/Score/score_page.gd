@@ -17,7 +17,7 @@ func _on_continue_pressed():
 		# reset level AND score once levelCount reaches the value above
 		Global.levelCount = 1 # levelCount always needs to start at 1 due to Jacob's retarded naming conventions
 		Global.overallScore = 0
-		string = "res://Scenes/main_scene.tscn"
+		string = "res://Scenes/Main/main_scene.tscn"
 		# debug msg
 		print(string)
 		
@@ -25,7 +25,7 @@ func _on_continue_pressed():
 		# can also make the game end here
 		get_tree().change_scene_to_file(string)
 	else:
-		string = "res://Scenes/main_scene_" + str(Global.levelCount) + ".tscn"
+		string = "res://Scenes/Main/main_scene_" + str(Global.levelCount) + ".tscn"
 		# debug msg
 		print(string)
 		

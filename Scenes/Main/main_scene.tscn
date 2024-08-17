@@ -1,18 +1,18 @@
 [gd_scene load_steps=5 format=3 uid="uid://p06og2jhhk8r"]
 
-[ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_pcalb"]
-[ext_resource type="Script" path="res://Scripts/global.gd" id="2_m23vh"]
-[ext_resource type="PackedScene" uid="uid://br2k2epsyut04" path="res://Scenes/inventory_grid.tscn" id="2_u0spn"]
-[ext_resource type="Texture2D" uid="uid://dvcuasd0xaoo" path="res://Assets/jn_tempassets/basic_ui_concept.png" id="3_77jsv"]
+[ext_resource type="Script" path="res://Scripts/Main/main_scene.gd" id="1_u4rt4"]
+[ext_resource type="Texture2D" uid="uid://dvcuasd0xaoo" path="res://Assets/jn_tempassets/basic_ui_concept.png" id="2_gyq8d"]
+[ext_resource type="PackedScene" uid="uid://br2k2epsyut04" path="res://Scenes/Grid/inventory_grid.tscn" id="3_qc77m"]
+[ext_resource type="Script" path="res://Scripts/global.gd" id="4_qdtc1"]
 
 [node name="Main Scene" type="Node2D"]
-script = ExtResource("1_pcalb")
+script = ExtResource("1_u4rt4")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -1
 offset_right = 1151.0
 offset_bottom = 646.0
-texture = ExtResource("3_77jsv")
+texture = ExtResource("2_gyq8d")
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
 layout_mode = 0
@@ -21,7 +21,7 @@ offset_bottom = 646.0
 theme_override_constants/margin_left = -705
 theme_override_constants/margin_top = 64
 
-[node name="InventoryGrid" parent="TextureRect/MarginContainer" instance=ExtResource("2_u0spn")]
+[node name="InventoryGrid" parent="TextureRect/MarginContainer" instance=ExtResource("3_qc77m")]
 modulate = Color(1, 1, 1, 0.92549)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -60,7 +60,7 @@ theme_override_constants/margin_bottom = 31
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Score: 0"
-script = ExtResource("2_m23vh")
+script = ExtResource("4_qdtc1")
 
 [node name="PackitupButton" type="Button" parent="TextureRect"]
 z_index = 1
