@@ -5,7 +5,7 @@ func _process(_delta):
 	$Score.text = "Score: %d" % Global.overallScore
 
 # continue button logic
-func _on_continue_pressed(_delta):
+func _on_continue_pressed():
 	# empty string
 	var string = ""
 	
