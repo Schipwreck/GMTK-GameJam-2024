@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://p06og2jhhk8r"]
+[gd_scene load_steps=2 format=3 uid="uid://p06og2jhhk8r"]
+
+[ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_pcalb"]
 
 [node name="Main Scene" type="Node2D"]
+script = ExtResource("1_pcalb")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 497.0
@@ -10,3 +13,12 @@ offset_bottom = 315.0
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 50
 text = "MAIN"
+
+[node name="PackitupButton" type="Button" parent="."]
+offset_left = 960.0
+offset_top = 571.0
+offset_right = 1132.0
+offset_bottom = 638.0
+text = "Pack It Up!"
+
+[connection signal="pressed" from="PackitupButton" to="." method="_on_packitup_button_pressed"]
