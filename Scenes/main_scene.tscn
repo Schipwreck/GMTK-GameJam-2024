@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://p06og2jhhk8r"]
+[gd_scene load_steps=2 format=3 uid="uid://p06og2jhhk8r"]
+
+[ext_resource type="Script" path="res://Scripts/pack_items.gd" id="1_2eiat"]
 
 [node name="Main Scene" type="Node2D"]
 
@@ -10,3 +12,4 @@ offset_bottom = 315.0
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 50
 text = "MAIN"
+script = ExtResource("1_2eiat")
