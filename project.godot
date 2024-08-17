@@ -17,4 +17,4 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Score="*res://Scripts/score.gd"
+Global="*res://Scripts/global.gd"

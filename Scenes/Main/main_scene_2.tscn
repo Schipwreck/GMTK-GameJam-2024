@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://suwv0362sefa"]
+
+[ext_resource type="Script" path="res://Scripts/Main/main_scene_2.gd" id="1_ejtw7"]
+[ext_resource type="Script" path="res://Scripts/global.gd" id="2_i0i01"]
+
+[node name="main_scene_2" type="Node2D"]
+script = ExtResource("1_ejtw7")
+
+[node name="PackitupButton" type="Button" parent="."]
+offset_left = 955.0
+offset_top = 573.0
+offset_right = 1136.0
+offset_bottom = 639.0
+text = "Pack It Up!"
+script = ExtResource("2_i0i01")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 456.0
+offset_top = 240.0
+offset_right = 701.0
+offset_bottom = 347.0
+theme_override_font_sizes/font_size = 40
+text = "Main 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Score: 0"
+script = ExtResource("2_i0i01")
+
+[connection signal="pressed" from="PackitupButton" to="." method="_on_packitup_button_pressed"]
