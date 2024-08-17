@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cpwckl0vpnest"]
 
-[ext_resource type="Script" path="res://Scripts/state_change.gd" id="1_wsj18"]
+[ext_resource type="Script" path="res://Scripts/IG-scripts/state_change.gd" id="1_wsj18"]
 
 [node name="Node2D" type="Node2D"]
 
