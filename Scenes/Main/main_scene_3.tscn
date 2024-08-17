@@ -6,42 +6,52 @@
 [node name="main_scene3" type="Node2D"]
 script = ExtResource("1_hgl52")
 
-[node name="Score" type="Label" parent="."]
-offset_left = 1472.0
-offset_right = 1856.0
-offset_bottom = 64.0
-theme_override_font_sizes/font_size = 40
-text = "Score: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="PackitupButton" type="Button" parent="."]
+offset_left = 960.0
+offset_top = 424.0
+offset_right = 1128.0
+offset_bottom = 488.0
+text = "Pack It Up!"
 script = ExtResource("2_vd3ud")
 
 [node name="ContainerSize" type="ColorRect" parent="."]
-offset_left = 128.0
-offset_top = 696.0
-offset_right = 1344.0
-offset_bottom = 1080.0
-
-[node name="LooseItems" type="ColorRect" parent="."]
-offset_left = 160.0
-offset_top = 272.0
-offset_right = 1312.0
-offset_bottom = 640.0
-color = Color(0.890196, 0, 0, 1)
-
-[node name="SideBar" type="ColorRect" parent="."]
-offset_left = 1472.0
+offset_left = 256.0
 offset_top = 64.0
-offset_right = 1856.0
-offset_bottom = 1064.0
+offset_right = 896.0
+offset_bottom = 480.0
+
+[node name="ShrinkUses" type="ColorRect" parent="."]
+offset_left = 960.0
+offset_top = 64.0
+offset_right = 1128.0
+offset_bottom = 392.0
+color = Color(0, 0, 1, 1)
+
+[node name="Portrait" type="ColorRect" parent="."]
+offset_left = 32.0
+offset_top = 64.0
+offset_right = 224.0
+offset_bottom = 280.0
 color = Color(0.188235, 1, 0.258824, 1)
 
-[node name="PackitupButton" type="Button" parent="."]
-offset_left = 1536.0
-offset_top = 960.0
-offset_right = 1792.0
-offset_bottom = 1056.0
-text = "Pack It Up!"
+[node name="Nameplate" type="ColorRect" parent="."]
+offset_left = 32.0
+offset_top = 320.0
+offset_right = 224.0
+offset_bottom = 376.0
+color = Color(0.188235, 1, 0.258824, 1)
+
+[node name="LooseItem" type="ColorRect" parent="."]
+offset_left = 65.0
+offset_top = 508.0
+offset_right = 1089.0
+offset_bottom = 636.0
+color = Color(0.890196, 0, 0, 1)
+
+[node name="Score" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Score: 0"
 script = ExtResource("2_vd3ud")
 
 [node name="Nameplate" type="ColorRect" parent="."]
