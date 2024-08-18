@@ -1,5 +1,8 @@
 extends Node2D
 
+func _ready():
+	Global.character = "" # add character name here
+
 # callback function
 func _process(_delta):
 	# display overall score
@@ -9,8 +12,20 @@ func _on_packitup_button_pressed():
 	# debug msg
 	print("Level " + str(Global.levelCount) + " passed!")
 	
-	# calc score goes here..
-	Global.overallScore += 1
+	# storing score in placeholder int
+	Global.scorekeeper = Global._calculateScore()
+	
+	# adding placeholder int to overall score
+	Global.overallScore += Global.scorekeeper
+	
+	# adding placeholder int to score array
+	Global.arr.push_back(Global.scorekeeper)
+	
+	# printing stars
+	Global.stars = Global._calculateStars()
+	
+	# resetting placeholder int
+	Global.scorekeeper = 0
 	
 	# change scene
 	get_tree().change_scene_to_file("res://Scenes/Score/score_page.tscn")
