@@ -1,19 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://br2k2epsyut04"]
+[gd_scene format=3 uid="uid://5rehn6jw1640"]
 
-[ext_resource type="Script" path="res://Scripts/Grid/inventory_grid.gd" id="1_rpy3f"]
-
-[node name="InventoryGrid" type="Control"]
+[node name="InventoryGridBlackbox" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_rpy3f")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.254902, 0.156863, 0.0784314, 0)
@@ -25,10 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
+theme_override_constants/margin_right = 40
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer"]
 layout_mode = 2
@@ -58,44 +51,36 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
-columns = 6
+columns = 5
 
 [node name="Header3" type="HBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Header" type="HBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer3"]
+[node name="Header" type="HBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer3/Header"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="ChestContainer" type="GridContainer" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer3/Header/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 0
-columns = 8
-
-[node name="Header3" type="HBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer3"]
+[node name="Header2" type="HBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Button_Spawn" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer3/Header3"]
-custom_minimum_size = Vector2(400, 200)
+[node name="Button_Spawn" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer2/Header2"]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 30
-text = "Surpise factor"
+text = "Black Box
+"
 
-[connection signal="pressed" from="ColorRect/MarginContainer/HBoxContainer/VBoxContainer3/Header3/Button_Spawn" to="." method="_on_button_spawn_pressed"]
+[node name="Header3" type="HBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3

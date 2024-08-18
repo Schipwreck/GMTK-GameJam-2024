@@ -6,7 +6,7 @@ func _ready():
 # callback function
 func _process(_delta):
 	# display overall score
-	$TextureRect/MarginContainer2/Score.text = "Score: %d" % Global.overallScore
+	$Score.text = "Score: %d" % Global.overallScore
 
 func _on_packitup_button_pressed():
 	# debug message
