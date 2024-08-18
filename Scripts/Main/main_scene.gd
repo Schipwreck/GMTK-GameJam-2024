@@ -1,16 +1,5 @@
 extends Node2D
 
-# callback function
-func _process(_delta):
-	# display overall score
-	$TextureRect/MarginContainer2/Score.text = "Score: %d" % Global.overallScore
 
-func _on_packitup_button_pressed():
-	# debug message
-	print("Level " + str(Global.levelCount) + " passed!")
-	
-	# calc score goes here
-	Global.overallScore += 1
-	
-	# change scene
+func _on_packitup_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Score/score_page.tscn")

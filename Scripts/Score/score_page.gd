@@ -15,7 +15,7 @@ func _on_continue_pressed():
 	# to add levels, increase value below
 	if Global.levelCount == 4:
 		# reset level AND score once levelCount reaches the value above
-		Global.levelCount = 1 # levelCount always needs to start at 1 due to Jacob's retarded naming conventions
+		Global.levelCount = 1 # levelCount always needs to start at 1 due to Jacob's poor naming conventions
 		Global.overallScore = 0
 		string = "res://Scenes/Main/main_scene.tscn"
 		# debug msg
