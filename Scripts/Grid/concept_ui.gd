@@ -14,6 +14,8 @@ extends Control
 @onready var text_value = %CurrValue
 @onready var text_weight = %CurrWeight
 
+@onready var curr_item_list = DataHandler.parsed_item_list.duplicate()
+
 var item_held = null
 
 var grid_array := []
@@ -31,8 +33,12 @@ var icon_anchor_chest : Vector2
 var current_value = 0
 var current_weight = 0
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
+	
 	for i in range(24):
 		create_slot()
 		
@@ -44,6 +50,8 @@ func _ready():
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	
+	
 	if item_held:
 		if Input.is_action_just_pressed("rotate_item"):
 			rotate_item()
@@ -124,10 +132,21 @@ func _on_button_spawn_pressed() -> void:
 	
 	var new_item = item_scene.instantiate()
 	add_child(new_item)
-	#new_item.load_item(str(randi_range(1, 4)))
-	new_item.load_item(str(1))
+	
+	#curr_item_list is a mutable duplicate of our master list. 
+	#check if its empty, then refresh loot pool
+	if curr_item_list.is_empty(): 
+		curr_item_list = DataHandler.parsed_item_list.duplicate()
+	
+	var curr_item = curr_item_list.pick_random()
+	
+	new_item.load_item(curr_item)
 	new_item.selected = true
 	item_held = new_item
+	
+	var curr_item_index = curr_item_list.find(curr_item)
+	curr_item_list.remove_at(curr_item_index)
+	
 	
 func check_slot_availability(a_Slot) -> void:
 	for grid in item_held.item_grids:
