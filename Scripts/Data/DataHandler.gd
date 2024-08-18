@@ -2,8 +2,7 @@ extends Node
 
 var item_data := {}
 var item_grid_data := {}
-var parsed_item_list := []
-
+var item_name_list  := []
 @onready var item_data_path = "res://Data/Item_data.json"
 
 # Called when the node enters the scene tree for the first time.
@@ -16,7 +15,7 @@ func load_data(a_path) -> void:
 		print("Item data file not found")
 	var item_data_file = FileAccess.open(a_path, FileAccess.READ)
 	item_data = JSON.parse_string(item_data_file.get_as_text())
-	parsed_item_list = item_data.keys()
+	item_name_list = item_data.keys()
 	item_data_file.close()
 	
 func set_grid_data():
