@@ -1,19 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://crb0ihuqq3vl4"]
 
-[ext_resource type="Script" path="res://Scripts/IG-scripts/mouse_drag_drop.gd" id="1_n6gnu"]
-[ext_resource type="Texture2D" uid="uid://dd3ppdnkci0bj" path="res://Assets/jn_tempassets/inventory_texture.png" id="2_pqm52"]
+[ext_resource type="Script" path="res://Scripts/IG-scripts/player_ctrl_prototype.gd" id="1_mqduq"]
+[ext_resource type="Texture2D" uid="uid://dd3ppdnkci0bj" path="res://Assets/jn_tempassets/inventory_texture.png" id="2_ep6qi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1rf8"]
 size = Vector2(99, 99)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(403, 152)
-script = ExtResource("1_n6gnu")
+script = ExtResource("1_mqduq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.5, 0)
 scale = Vector2(0.97, 1)
-texture = ExtResource("2_pqm52")
+texture = ExtResource("2_ep6qi")
 
 [node name="Area2D" type="Area2D" parent="."]
 
