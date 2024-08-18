@@ -1,6 +1,5 @@
 extends Control
-
-
+ 
 func _on_start_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Main/main_scene.tscn")
 	pass # Replace with function body.
@@ -9,3 +8,35 @@ func _on_start_button_pressed():
 func _on_quit_button_pressed():
 	get_tree().quit()
 	pass # Replace with function body.
+
+
+func _on_settings_button_pressed():
+	get_tree().change_scene_to_file("res://Scenes/settings.tscn")
+	pass # Replace with function body.
+
+
+func _on_sfx_button_pressed() -> void:
+	$sfx.play()
+	
+	
+var SFX: StringName
+var Music: StringName
+var music_index = 1
+var sfx_index = 2
+func _on_sfx_slider_ready() -> void:
+	pass
+
+
+
+func _on_sfx_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(sfx_index,
+	linear_to_db(value))
+
+
+func _on_music_slider_ready() -> void:
+	pass
+
+
+func _on_music_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(music_index,
+	linear_to_db(value))

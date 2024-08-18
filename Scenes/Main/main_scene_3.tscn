@@ -6,28 +6,83 @@
 [node name="main_scene3" type="Node2D"]
 script = ExtResource("1_hgl52")
 
+[node name="Score" type="Label" parent="."]
+offset_left = 1472.0
+offset_right = 1856.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 40
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_vd3ud")
+
+[node name="ContainerSize" type="ColorRect" parent="."]
+offset_left = 128.0
+offset_top = 696.0
+offset_right = 1344.0
+offset_bottom = 1080.0
+
+[node name="LooseItems" type="ColorRect" parent="."]
+offset_left = 160.0
+offset_top = 272.0
+offset_right = 1312.0
+offset_bottom = 640.0
+color = Color(0.890196, 0, 0, 1)
+
+[node name="SideBar" type="ColorRect" parent="."]
+offset_left = 1472.0
+offset_top = 64.0
+offset_right = 1856.0
+offset_bottom = 1064.0
+color = Color(0.188235, 1, 0.258824, 1)
+
 [node name="PackitupButton" type="Button" parent="."]
-offset_left = 942.0
-offset_top = 556.0
-offset_right = 1137.0
-offset_bottom = 641.0
+offset_left = 1536.0
+offset_top = 960.0
+offset_right = 1792.0
+offset_bottom = 1056.0
 text = "Pack It Up!"
 script = ExtResource("2_vd3ud")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 391.0
-offset_top = 216.0
-offset_right = 689.0
-offset_bottom = 359.0
-theme_override_font_sizes/font_size = 40
-text = "Main 3"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Nameplate" type="ColorRect" parent="."]
+offset_left = 1536.0
+offset_top = 472.0
+offset_right = 1792.0
+offset_bottom = 536.0
+color = Color(0.188235, 0.388235, 0.258824, 1)
 
-[node name="Score" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Score: 0"
-script = ExtResource("2_vd3ud")
+[node name="Chest" type="ColorRect" parent="."]
+offset_left = 160.0
+offset_right = 1312.0
+offset_bottom = 176.0
+color = Color(0, 0, 1, 1)
+
+[node name="SpawnButton" type="Button" parent="."]
+offset_left = 640.0
+offset_top = 192.0
+offset_right = 832.0
+offset_bottom = 256.0
+text = "Spawn Item"
+
+[node name="Portrait" type="ColorRect" parent="."]
+offset_left = 1504.0
+offset_top = 128.0
+offset_right = 1824.0
+offset_bottom = 448.0
+color = Color(0, 0, 0, 1)
+
+[node name="Weight" type="ColorRect" parent="."]
+offset_left = 1536.0
+offset_top = 584.0
+offset_right = 1792.0
+offset_bottom = 672.0
+color = Color(0.188235, 0.388235, 0.258824, 1)
+
+[node name="Value" type="ColorRect" parent="."]
+offset_left = 1536.0
+offset_top = 704.0
+offset_right = 1792.0
+offset_bottom = 800.0
+color = Color(0.188235, 0.388235, 0.258824, 1)
 
 [connection signal="pressed" from="PackitupButton" to="." method="_on_packitup_button_pressed"]
