@@ -11,7 +11,6 @@ func _ready():
 	load_data(item_data_path)
 	set_grid_data()
 
-
 func load_data(a_path) -> void:
 	if not FileAccess.file_exists(a_path):
 		print("Item data file not found")
