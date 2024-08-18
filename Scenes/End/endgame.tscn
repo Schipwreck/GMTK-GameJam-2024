@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce42xrofakgmi"]
+
+[ext_resource type="Script" path="res://Scripts/End/endgame.gd" id="1_b2ui4"]
+[ext_resource type="Script" path="res://Scripts/global.gd" id="2_w7isg"]
+
+[node name="Endgame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b2ui4")
+
+[node name="previous_level_1" type="Label" parent="."]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 114.0
+offset_right = 478.0
+offset_bottom = 137.0
+text = "Level 1 Score: 0"
+script = ExtResource("2_w7isg")
+
+[node name="previous_level_2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 138.0
+offset_right = 479.0
+offset_bottom = 161.0
+text = "Level 2 Score: 0"
+script = ExtResource("2_w7isg")
+
+[node name="previous_level_3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 163.0
+offset_right = 480.0
+offset_bottom = 186.0
+text = "Level 3 Score: 0"
+script = ExtResource("2_w7isg")
+
+[node name="quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 399.0
+offset_top = 284.0
+offset_right = 441.0
+offset_bottom = 315.0
+text = "Quit"
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 358.0
+offset_top = 227.0
+offset_right = 478.0
+offset_bottom = 250.0
+text = "Overall Score: 0"
+
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
