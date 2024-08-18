@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://l1iapy4m12v4"]
-
-[ext_resource type="Script" path="res://scripts/mouse_hovering_object.gd" id="1_kg0ff"]
+[gd_scene load_steps=2 format=3 uid="uid://bx56i02dhvdq3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gylpq"]
 size = Vector2(90.5, 45.5)
@@ -23,4 +21,3 @@ text = "FUCK"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(43.75, 32.25)
 shape = SubResource("RectangleShape2D_gylpq")
-script = ExtResource("1_kg0ff")
