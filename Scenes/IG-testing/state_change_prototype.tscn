@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpwckl0vpnest"]
+
+[ext_resource type="Script" path="res://Scripts/IG-scripts/state_change.gd" id="1_wsj18"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 150.0
+offset_top = 80.0
+offset_right = 466.0
+offset_bottom = 192.0
+text = "This is a test"
+script = ExtResource("1_wsj18")
+
+[node name="Camera2D" type="Camera2D" parent="Label"]
+position = Vector2(45, 20)
+zoom = Vector2(4, 4)

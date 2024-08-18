@@ -24,6 +24,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
 layout_mode = 2
@@ -32,11 +36,13 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/Header"]
+[node name="Button_Spawn" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/Header"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+theme_override_font_sizes/font_size = 22
+text = "Spawn Item"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -46,4 +52,6 @@ size_flags_vertical = 3
 layout_mode = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
-columns = 14
+columns = 13
+
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Header/Button_Spawn" to="." method="_on_button_spawn_pressed"]
