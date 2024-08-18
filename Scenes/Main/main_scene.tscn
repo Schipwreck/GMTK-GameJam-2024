@@ -10,29 +10,29 @@ script = ExtResource("1_u4rt4")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -1
-offset_right = 1151.0
-offset_bottom = 646.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 texture = ExtResource("2_gyq8d")
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
 layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 646.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 theme_override_constants/margin_left = -705
 theme_override_constants/margin_top = 64
 
 [node name="MarginContainer3" type="MarginContainer" parent="TextureRect"]
-layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 646.0
-theme_override_constants/margin_left = 22
+layout_mode = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 3
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer3"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 75
 text = "MAIN"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -46,39 +46,36 @@ offset_top = -43.5
 offset_right = 61.0
 offset_bottom = 43.5
 grow_vertical = 2
-theme_override_constants/margin_left = 58
+theme_override_constants/margin_left = 70
 theme_override_constants/margin_bottom = 31
 
 [node name="Score" type="Label" parent="TextureRect/MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
 text = "Score: 0"
 script = ExtResource("4_qdtc1")
-
-[node name="PackitupButton" type="Button" parent="TextureRect"]
-z_index = 1
-custom_minimum_size = Vector2(150, 100)
-layout_mode = 2
-offset_left = 991.0
-offset_top = 531.0
-offset_right = 1141.0
-offset_bottom = 631.0
-size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 24
-text = "Pack It Up!"
 
 [node name="InventoryGrid" parent="TextureRect" instance=ExtResource("3_qc77m")]
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 223.0
-offset_top = 64.0
-offset_right = 223.0
-offset_bottom = 64.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 metadata/_edit_use_anchors_ = true
+
+[node name="PackitupButton" type="Button" parent="TextureRect"]
+z_index = 2
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+offset_left = 1673.0
+offset_top = 893.0
+offset_right = 1887.0
+offset_bottom = 1054.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 24
+text = "Pack It Up!"
 
 [connection signal="pressed" from="TextureRect/PackitupButton" to="." method="_on_packitup_button_pressed"]
