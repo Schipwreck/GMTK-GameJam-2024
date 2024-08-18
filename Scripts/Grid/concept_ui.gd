@@ -3,13 +3,16 @@ extends Control
 @onready var slot_scene = preload("res://Scenes/Grid/slot.tscn")
 @onready var item_scene = preload("res://Scenes/Grid/item.tscn")
 
-@onready var grid_container = $TextureRect/MarginContainer/HBoxContainer/VBoxContainer/Header2/ScrollContainer/GridContainer
-@onready var scroll_container = $TextureRect/MarginContainer/HBoxContainer/VBoxContainer/Header2/ScrollContainer
+@onready var grid_container = $TextureRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/ScrollContainer/GridContainer
+@onready var scroll_container = $TextureRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/ScrollContainer
 @onready var col_count = grid_container.columns
 
-@onready var chest_container = $TextureRect/MarginContainer/HBoxContainer/VBoxContainer3/Header/ScrollContainer/ChestContainer
-@onready var scroll_chest_container = $TextureRect/MarginContainer/HBoxContainer/VBoxContainer3/Header/ScrollContainer
+@onready var chest_container = $TextureRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/ScrollContainer/ChestContainer
+@onready var scroll_chest_container = $TextureRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/ScrollContainer
 @onready var col_count_chest = chest_container.columns
+
+@onready var text_value = %CurrValue
+@onready var text_weight = %CurrWeight
 
 var item_held = null
 
@@ -25,18 +28,20 @@ var can_place_chest := false
 var icon_anchor : Vector2
 var icon_anchor_chest : Vector2
 
+var current_value = 0
+var current_weight = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in range(24):
 		create_slot()
 		
 	# when create_slot_chest() i can add functionality to add items
-	for i in range(96):
+	for i in range(598):
 		create_slot_chest()
 		# add items to slots
 		#populate_chest()
 		
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if item_held:
@@ -47,6 +52,22 @@ func _process(_delta: float) -> void:
 				place_item()
 			if scroll_chest_container.get_global_rect().has_point(get_global_mouse_position()):
 				place_item_chest()
+		# If Shrink or Enlarge
+		if Input.is_action_just_pressed("shrinkRay"):
+			var new_item = item_scene.instantiate()
+			add_child(new_item)
+			new_item.load_item(item_held.item_ID.split("_")[0] + "_Small")
+			built_to_scale_my_guy(new_item)
+		if Input.is_action_just_pressed("biggerRay"):
+			var new_item = item_scene.instantiate()
+			add_child(new_item)
+			new_item.load_item(item_held.item_ID.split("_")[0] + "_Large")
+			built_to_scale_my_guy(new_item)
+		if Input.is_action_just_pressed("defaultAgain"):
+			var new_item = item_scene.instantiate()
+			add_child(new_item)
+			new_item.load_item(item_held.item_ID.split("_")[0])
+			built_to_scale_my_guy(new_item)
 	else:
 		if Input.is_action_just_pressed("mouse_leftclick"):
 			if scroll_container.get_global_rect().has_point(get_global_mouse_position()):
@@ -103,7 +124,8 @@ func _on_button_spawn_pressed() -> void:
 	
 	var new_item = item_scene.instantiate()
 	add_child(new_item)
-	new_item.load_item(str(randi_range(1, 4)))
+	#new_item.load_item(str(randi_range(1, 4)))
+	new_item.load_item(str(1))
 	new_item.selected = true
 	item_held = new_item
 	
@@ -203,6 +225,11 @@ func place_item():
 		grid_array[grid_to_check].state = grid_array[grid_to_check].States.TAKEN
 		grid_array[grid_to_check].item_stored = item_held
 		
+	current_value += item_held.item_value
+	current_weight += item_held.item_weight
+	text_value.text = "Current Value of Grid: " + str(current_value)
+	text_weight.text = "Current Weight of Grid: " + str(current_weight)
+		
 	item_held = null
 	clear_grid()
 	
@@ -242,6 +269,11 @@ func pick_item():
 		grid_array[grid_to_check].state = grid_array[grid_to_check].States.FREE
 		grid_array[grid_to_check].item_stored = null
 		
+	current_value -= item_held.item_value
+	current_weight -= item_held.item_weight
+	text_value.text = "Current Value of Grid: " + str(current_value)
+	text_weight.text = "Current Weight of Grid: " + str(current_weight)
+		
 	check_slot_availability(current_slot)
 	set_grids.call_deferred(current_slot)
 
@@ -269,3 +301,23 @@ func pick_item_chest():
 	#add_child(new_item)
 	#new_item.load_item(str(randi_range(1, 4)))
 	
+func _on_packitup_button_pressed():
+	# debug message
+	print("Level " + str(Global.levelCount) + " passed!")
+	
+	# calc score goes here
+	Global.overallScore += 1
+	
+	# change scene
+	get_tree().change_scene_to_file("res://Scenes/Score/score_page.tscn")
+	
+func built_to_scale_my_guy(new_item):
+	new_item.selected = true
+	remove_child(item_held)
+	item_held = new_item
+	clear_grid()
+	clear_grid_chest()
+	if current_slot:
+		_on_slot_mouse_entered(current_slot)
+	if current_slot_chest:
+		_on_slot_mouse_entered_chest(current_slot_chest)

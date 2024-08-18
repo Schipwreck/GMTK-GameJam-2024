@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0bte3o5ib1ah"]
+[gd_scene load_steps=3 format=3 uid="uid://ccru7sodivctg"]
 
 [ext_resource type="Script" path="res://Scripts/mouse_hovering.gd" id="2_7jsx8"]
 [ext_resource type="Texture2D" uid="uid://dd3ppdnkci0bj" path="res://Assets/jn_tempassets/inventory_texture.png" id="2_vxedc"]
