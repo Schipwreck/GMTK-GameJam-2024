@@ -308,6 +308,7 @@ func pick_item_chest():
 	if not current_slot_chest or not current_slot_chest.item_stored:
 		return
 		
+	Input.set_custom_mouse_cursor(hand_closed)		
 	item_held = current_slot_chest.item_stored
 	item_held.selected = true
 	
