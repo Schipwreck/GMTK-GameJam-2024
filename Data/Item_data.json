@@ -81,5 +81,23 @@
 		"Value":200,
 		"Weight": 5, 
 		"Grid": "0,0/1,0/-1,0/0,1/1,1/-1,1/0,-1/1,-1/-1,-1"
-	}
+	},
+	"5": {
+		"Name": "diamond_default",
+		"Value":200,
+		"Weight": 5, 
+		"Grid": "0,0/1,0/0,-1/1,-1"
+	}, 
+	"5_Large": {
+		"Name": "diamond_default",
+		"Value":200,
+		"Weight": 5, 
+		"Grid": "0,0/1,0/0,-1/1,-1"
+	}, 
+	"5_Small": {
+		"Name": "diamond_default",
+		"Value":200,
+		"Weight": 5, 
+		"Grid": "0,0/1,0/0,-1/1,-1"
+	}, 
 }
