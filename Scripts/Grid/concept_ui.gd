@@ -33,7 +33,8 @@ var icon_anchor_chest : Vector2
 var current_value = 0
 var current_weight = 0
 
-
+var hand_open = load("res://Assets/MouseCursor/hand_open.png")
+var hand_closed = load("res://Assets/MouseCursor/hand_closed.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -133,6 +134,7 @@ func _on_button_spawn_pressed() -> void:
 	
 	 
 	if item_held == null:
+		Input.set_custom_mouse_cursor(hand_closed)
 		var new_item = item_scene.instantiate()
 		add_child(new_item)
 		
@@ -253,6 +255,7 @@ func place_item():
 	text_weight.text = "Current Weight of Grid: " + str(current_weight)
 		
 	item_held = null
+	Input.set_custom_mouse_cursor(hand_open)
 	clear_grid()
 	
 func place_item_chest():
@@ -272,13 +275,15 @@ func place_item_chest():
 		chest_array[grid_to_check].state = chest_array[grid_to_check].States.TAKEN
 		chest_array[grid_to_check].item_stored = item_held
 		
+	Input.set_custom_mouse_cursor(hand_open)	
 	item_held = null
 	clear_grid_chest()
 
 func pick_item():
 	if not current_slot or not current_slot.item_stored:
 		return
-		
+	
+	Input.set_custom_mouse_cursor(hand_closed)	
 	item_held = current_slot.item_stored
 	item_held.selected = true
 	
