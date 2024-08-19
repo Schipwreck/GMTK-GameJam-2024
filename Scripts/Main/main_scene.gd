@@ -1,20 +1,19 @@
 extends Node2D
 
 
-@onready var pause_menu = $PauseMenu
-@onready var concept_ui = $ConceptUI
+@onready var pause_menu = $CanvasLayer/PauseMenu
+@onready var concept_ui = $CanvasLayer3/ConceptUI
 var paused = false
 
 func _ready():
 	Global.character = "Granny" # add character name here
-
 
 # callback function
 func _process(_delta):
 	# display overall score
 	if Input.is_action_just_pressed("Pause"):
 		pauseMenu()
-	$Score.text = "Score: %d" % Global.overallScore
+		
 func pauseMenu():
 	if paused:
 		pause_menu.hide()

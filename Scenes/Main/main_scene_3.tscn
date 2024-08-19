@@ -1,17 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://pc52mcamwith"]
+[gd_scene load_steps=8 format=3 uid="uid://pc52mcamwith"]
 
 [ext_resource type="Script" path="res://Scripts/Main/main_scene_3.gd" id="1_hgl52"]
 [ext_resource type="Script" path="res://Scripts/global.gd" id="2_vd3ud"]
 [ext_resource type="PackedScene" uid="uid://ehjw00nb4qx" path="res://Scenes/Grid/concept_ui.tscn" id="3_k3on8"]
+[ext_resource type="Script" path="res://Scripts/Dialogic/dialogic.gd" id="3_oxwf1"]
 [ext_resource type="AudioStream" uid="uid://dn0annnj17k6w" path="res://750217__nancy_sinclair__emotional-piano-and-haunting-strings.mp3" id="4_2r4xi"]
 [ext_resource type="AudioStream" uid="uid://vjnshk7ft7ib" path="res://switch17.wav" id="5_yd8tt"]
-[ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="6_g2jwl"]
+[ext_resource type="PackedScene" uid="uid://ofvxc8p1xp4t" path="res://Scenes/pause_menu.tscn" id="6_g2jwl"]
 
-[node name="main_scene3" type="Node2D"]
+[node name="Main Scene 3" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_hgl52")
 
-[node name="ConceptUI" parent="." instance=ExtResource("3_k3on8")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_g2jwl")]
+visible = false
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Dialogic" type="Node" parent="CanvasLayer2"]
+script = ExtResource("3_oxwf1")
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="ConceptUI" parent="CanvasLayer3" instance=ExtResource("3_k3on8")]
 process_mode = 1
 
 [node name="Score" type="Label" parent="."]
@@ -32,6 +47,3 @@ bus = &"Music"
 [node name="sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_yd8tt")
 bus = &"SFX"
-
-[node name="PauseMenu" parent="." instance=ExtResource("6_g2jwl")]
-visible = false
