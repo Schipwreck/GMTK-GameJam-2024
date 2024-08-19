@@ -29,6 +29,7 @@ TransitionScene="*res://Scenes/transition_scene.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+mouse_cursor/custom_image="res://Assets/MouseCursor/pointer_c.png"
 
 [dotnet]
 
