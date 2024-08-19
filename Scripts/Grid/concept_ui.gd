@@ -45,9 +45,12 @@ func _ready():
 		
 	# when create_slot_chest() i can add functionality to add items
 	for i in range(600):
+	for i in range(600):
 		create_slot_chest()
 		# add items to slots
 		#populate_chest()
+	clear_grid()
+	clear_grid_chest()
 	clear_grid()
 	clear_grid_chest()
 		
@@ -155,6 +158,7 @@ func check_slot_availability(a_Slot) -> void:
 	for grid in item_held.item_grids:
 		var grid_to_check = a_Slot.slot_ID + grid[0] + grid[1] * col_count
 		var line_switch_check = a_Slot.slot_ID % col_count + grid[0]
+		if line_switch_check < 0 or line_switch_check >= col_count:
 		if line_switch_check < 0 or line_switch_check >= col_count:
 			can_place = false
 			return
