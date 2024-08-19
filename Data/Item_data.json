@@ -71,6 +71,13 @@
 		"Weight": 5, 
 		"Grid": "0,0/1,0/0,-1/1,-1"
 	}, 
+	
+	"4_Large": {
+		"Name": "diamond",
+		"Value":200,
+		"Weight": 5, 
+		"Grid": "0,0/1,0/-1,0/0,1/1,1/-1,1/0,-1/1,-1/-1,-1"
+	},
 		
 	"4_Small": {
 		"Name": "diamond_small",
