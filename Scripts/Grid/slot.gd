@@ -20,7 +20,7 @@ var item_stored = null
 func set_color(a_state = States.DEFAULT) -> void:
 	match a_state:
 		States.DEFAULT:
-			filter.color = Color(Color.WHITE, 0.075)
+			filter.color = Color(Color.WHITE, 0)
 		States.TAKEN:
 			filter.color = Color(Color.RED, 0.2)
 		States.FREE:

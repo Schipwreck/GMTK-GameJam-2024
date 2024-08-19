@@ -44,10 +44,12 @@ func _ready():
 		create_slot()
 		
 	# when create_slot_chest() i can add functionality to add items
-	for i in range(598):
+	for i in range(600):
 		create_slot_chest()
 		# add items to slots
 		#populate_chest()
+	clear_grid()
+	clear_grid_chest()
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -129,31 +131,31 @@ func _on_slot_mouse_exited_chest(a_Slot):
 	
 func _on_button_spawn_pressed() -> void:
 	
-	# new_item.load_item(str(randi_range(1, 4) + "_Small") 
-	
-	var new_item = item_scene.instantiate()
-	add_child(new_item)
-	
-	#curr_item_list is a mutable duplicate of our master list. 
-	#check if its empty, then refresh loot pool
-	if curr_item_list.is_empty(): 
-		curr_item_list = DataHandler.parsed_item_list.duplicate()
-	
-	var curr_item = curr_item_list.pick_random()
-	
-	new_item.load_item(curr_item)
-	new_item.selected = true
-	item_held = new_item
-	
-	var curr_item_index = curr_item_list.find(curr_item)
-	curr_item_list.remove_at(curr_item_index)
+	 
+	if item_held == null:
+		var new_item = item_scene.instantiate()
+		add_child(new_item)
+		
+		#curr_item_list is a mutable duplicate of our master list. 
+		#check if its empty, then refresh loot pool
+		if curr_item_list.is_empty(): 
+			curr_item_list = DataHandler.parsed_item_list.duplicate()
+		
+		var curr_item = curr_item_list.pick_random()
+		
+		new_item.load_item(curr_item)
+		new_item.selected = true
+		item_held = new_item
+		
+		var curr_item_index = curr_item_list.find(curr_item)
+		curr_item_list.remove_at(curr_item_index)
 	
 	
 func check_slot_availability(a_Slot) -> void:
 	for grid in item_held.item_grids:
 		var grid_to_check = a_Slot.slot_ID + grid[0] + grid[1] * col_count
 		var line_switch_check = a_Slot.slot_ID % col_count + grid[0]
-		if line_switch_check < 0 or  line_switch_check >= col_count:
+		if line_switch_check < 0 or line_switch_check >= col_count:
 			can_place = false
 			return
 		if grid_to_check < 0 or grid_to_check >= grid_array.size():
@@ -326,7 +328,8 @@ func _on_packitup_button_pressed():
 	print("Level " + str(Global.levelCount) + " passed!")
 	
 	# calc score goes here
-	Global.overallScore += 1
+	Global.overallScore += current_value
+	Global.arr.push_back(current_value)
 	
 	# change scene
 	get_tree().change_scene_to_file("res://Scenes/Score/score_page.tscn")
