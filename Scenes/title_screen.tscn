@@ -45,28 +45,11 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 40
 text = "Quit"
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1653.0
-offset_top = 986.0
-offset_right = 1716.0
-offset_bottom = 1032.0
-text = "music"
-
-[node name="Button2" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1782.0
-offset_top = 988.0
-offset_right = 1845.0
-offset_bottom = 1034.0
-text = "SFX
-"
-
 [node name="MusicSlider" type="VSlider" parent="."]
 layout_mode = 0
-offset_left = 1664.0
+offset_left = 1672.0
 offset_top = 576.0
-offset_right = 1680.0
+offset_right = 1691.0
 offset_bottom = 730.0
 scale = Vector2(2.5, 2.5)
 max_value = 1.0
@@ -74,9 +57,9 @@ step = 0.001
 
 [node name="SFXSlider" type="VSlider" parent="."]
 layout_mode = 0
-offset_left = 1792.0
+offset_left = 1800.0
 offset_top = 576.0
-offset_right = 1808.0
+offset_right = 1819.0
 offset_bottom = 730.0
 scale = Vector2(2.5, 2.5)
 max_value = 1.0
@@ -93,12 +76,49 @@ bus = &"SFX"
 
 [node name="SFXButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1396.0
-offset_top = 990.0
-offset_right = 1582.0
-offset_bottom = 1034.0
+offset_left = 1378.0
+offset_top = 988.0
+offset_right = 1564.0
+offset_bottom = 1032.0
 text = "Make Noise
 "
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1640.0
+offset_top = 968.0
+offset_right = 1752.0
+offset_bottom = 1008.0
+color = Color(0.136826, 0.136826, 0.136826, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 96.0
+offset_bottom = 31.0
+text = "Music
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1768.0
+offset_top = 968.0
+offset_right = 1880.0
+offset_bottom = 1008.0
+color = Color(0.137255, 0.137255, 0.137255, 1)
+
+[node name="Label2" type="Label" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 96.0
+offset_bottom = 31.0
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

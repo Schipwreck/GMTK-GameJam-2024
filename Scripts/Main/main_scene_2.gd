@@ -1,14 +1,33 @@
 extends Node2D
 
+
+@onready var pause_menu = $PauseMenu
+@onready var concept_ui = $ConceptUI
+var paused = false
+
 func _ready():
 	Global.character = "" # add character name here
 
 # callback function
 func _process(_delta):
+	if Input.is_action_just_pressed("Pause"):
+		pauseMenu()
 	# display overall score
 	$Score.text = "Score: %d" % Global.overallScore
-
+func pauseMenu():
+	if paused:
+		pause_menu.hide()
+		concept_ui.get_tree().paused = false
+		Engine.time_scale = 1
+	else:
+		pause_menu.show()
+		concept_ui.get_tree().paused = true
+		Engine.time_scale = 0
+		
+	paused = !paused
 func _on_packitup_button_pressed():
+	TransitionScene.transition()
+	await TransitionScene.on_transition_finished
 	# debug message
 	print("Level " + str(Global.levelCount) + " passed!")
 	
