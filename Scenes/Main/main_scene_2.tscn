@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Main/main_scene_2.gd" id="1_ejtw7"]
 [ext_resource type="Script" path="res://Scripts/global.gd" id="2_i0i01"]
 [ext_resource type="PackedScene" uid="uid://ehjw00nb4qx" path="res://Scenes/Grid/concept_ui.tscn" id="3_a25bo"]
-[ext_resource type="PackedScene" uid="uid://bkiu315lmp3ho" path="res://Scenes/pause_menu.tscn" id="4_xpktf"]
+[ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="4_xpktf"]
 [ext_resource type="AudioStream" uid="uid://dn0annnj17k6w" path="res://750217__nancy_sinclair__emotional-piano-and-haunting-strings.mp3" id="5_jstbx"]
 [ext_resource type="AudioStream" uid="uid://vjnshk7ft7ib" path="res://switch17.wav" id="6_yvek1"]
 

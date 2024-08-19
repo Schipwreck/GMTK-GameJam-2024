@@ -33,20 +33,20 @@ func _on_packitup_button_pressed():
 	await TransitionScene.on_transition_finished
 	print("Level " + str(Global.levelCount) + " passed!")
 	
-	# storing score in placeholder int
-	Global.scorekeeper = Global._calculateScore()
-	
-	# adding placeholder int to overall score
-	Global.overallScore += Global.scorekeeper
-	
-	# adding placeholder int to score array
-	Global.arr.push_back(Global.scorekeeper)
-	
-	# printing stars
-	Global.stars = Global._calculateStars()
-	
-	# resetting placeholder int
-	Global.scorekeeper = 0
+	## storing score in placeholder int
+	#Global.scorekeeper = Global._calculateScore()
+	#
+	## adding placeholder int to overall score
+	#Global.overallScore += Global.scorekeeper
+	#
+	## adding placeholder int to score array
+	#Global.arr.push_back(Global.overallScore)
+	#
+	## printing stars
+	#Global.stars = Global._calculateStars()
+	#
+	## resetting placeholder int
+	#Global.scorekeeper = 0
 	
 	# change scene
 

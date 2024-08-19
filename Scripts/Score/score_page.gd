@@ -2,7 +2,7 @@ extends Node
 
 # callback function
 func _process(_delta):
-	$Score.text = "Score: %s" % Global.stars
+	$Score.text = "Score: %d" % Global.overallScore
 	pass
 
 # continue button logic

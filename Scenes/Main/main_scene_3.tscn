@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ehjw00nb4qx" path="res://Scenes/Grid/concept_ui.tscn" id="3_k3on8"]
 [ext_resource type="AudioStream" uid="uid://dn0annnj17k6w" path="res://750217__nancy_sinclair__emotional-piano-and-haunting-strings.mp3" id="4_2r4xi"]
 [ext_resource type="AudioStream" uid="uid://vjnshk7ft7ib" path="res://switch17.wav" id="5_yd8tt"]
-[ext_resource type="PackedScene" uid="uid://bkiu315lmp3ho" path="res://Scenes/pause_menu.tscn" id="6_g2jwl"]
+[ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="6_g2jwl"]
 
 [node name="main_scene3" type="Node2D"]
 process_mode = 3

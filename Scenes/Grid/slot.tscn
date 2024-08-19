@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdiwsxpeg3fwc"]
 
-[ext_resource type="Texture2D" uid="uid://dd3ppdnkci0bj" path="res://Assets/jn_tempassets/inventory_texture.png" id="1_2w3a3"]
+[ext_resource type="Texture2D" uid="uid://cflhqkcm6mqbx" path="res://Assets/jn_tempassets/inventory/16x16 Item holder.png" id="1_sq4g2"]
 [ext_resource type="Script" path="res://Scripts/Grid/slot.gd" id="2_vetmi"]
 
 [node name="Slot" type="TextureRect"]
 custom_minimum_size = Vector2(50, 50)
-texture = ExtResource("1_2w3a3")
+texture = ExtResource("1_sq4g2")
 expand_mode = 1
 script = ExtResource("2_vetmi")
 
