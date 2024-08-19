@@ -11,6 +11,8 @@ extends Control
 @onready var scroll_chest_container = $TextureRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/ScrollContainer
 @onready var col_count_chest = chest_container.columns
 
+@onready var black_hole_sprite = $TextureRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AnimatedSprite2D
+
 @onready var text_value = %CurrValue
 @onready var text_weight = %CurrWeight
 
@@ -136,7 +138,10 @@ func _on_button_spawn_pressed() -> void:
 	if item_held == null:
 		Input.set_custom_mouse_cursor(hand_closed)
 		var new_item = item_scene.instantiate()
+		#new_item. = black_hole_sprite.global_position
 		add_child(new_item)
+		
+		
 		
 		#curr_item_list is a mutable duplicate of our master list. 
 		#check if its empty, then refresh loot pool
