@@ -132,8 +132,15 @@ func _on_button_spawn_pressed() -> void:
 	
 	var new_item = item_scene.instantiate()
 	add_child(new_item)
-	#new_item.load_item(str(randi_range(1, 3)))
-	new_item.load_item(DataHandler.item_name_list.pick_random())
+	
+	#curr_item_list is a mutable duplicate of our master list. 
+	#check if its empty, then refresh loot pool
+	if curr_item_list.is_empty(): 
+		curr_item_list = DataHandler.parsed_item_list.duplicate()
+	
+	var curr_item = curr_item_list.pick_random()
+	
+	new_item.load_item(curr_item)
 	new_item.selected = true
 	item_held = new_item
 	
