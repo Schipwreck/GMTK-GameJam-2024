@@ -1,99 +1,36 @@
-[gd_scene load_steps=17 format=3 uid="uid://ehjw00nb4qx"]
+[gd_scene load_steps=8 format=3 uid="uid://ehjw00nb4qx"]
 
 [ext_resource type="Script" path="res://Scripts/Grid/concept_ui.gd" id="1_pss36"]
 [ext_resource type="Texture2D" uid="uid://crdkbb67qwm0n" path="res://Assets/jn_tempassets/PORTAL.png" id="2_xxwcq"]
 [ext_resource type="Texture2D" uid="uid://i5q6ymayes85" path="res://Assets/jn_tempassets/level1eventandbckgrnd.png" id="3_unwoq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_23u3q"]
-atlas = ExtResource("2_xxwcq")
-region = Rect2(0, 0, 750, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xpt2q"]
-atlas = ExtResource("2_xxwcq")
-region = Rect2(750, 0, 750, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jp8qa"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_832av"]
 atlas = ExtResource("2_xxwcq")
 region = Rect2(1500, 0, 750, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o6qer"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_30bts"]
 atlas = ExtResource("2_xxwcq")
-region = Rect2(2250, 0, 750, 150)
+region = Rect2(750, 0, 750, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gi3kc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxqxm"]
 atlas = ExtResource("2_xxwcq")
-region = Rect2(3000, 0, 750, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r7h3l"]
-atlas = ExtResource("2_xxwcq")
-region = Rect2(3750, 0, 750, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lprp3"]
-atlas = ExtResource("2_xxwcq")
-region = Rect2(4500, 0, 750, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i1c3l"]
-atlas = ExtResource("2_xxwcq")
-region = Rect2(5250, 0, 750, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3w6qw"]
-atlas = ExtResource("2_xxwcq")
-region = Rect2(6000, 0, 750, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oiin5"]
-atlas = ExtResource("2_xxwcq")
-region = Rect2(6750, 0, 750, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lqx6g"]
-atlas = ExtResource("2_xxwcq")
-region = Rect2(7500, 0, 750, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pe7k1"]
-atlas = ExtResource("2_xxwcq")
-region = Rect2(8250, 0, 750, 150)
+region = Rect2(0, 0, 750, 150)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y2t5t"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_23u3q")
+"texture": SubResource("AtlasTexture_832av")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xpt2q")
+"texture": SubResource("AtlasTexture_30bts")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jp8qa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o6qer")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gi3kc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r7h3l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lprp3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i1c3l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3w6qw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oiin5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lqx6g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pe7k1")
+"texture": SubResource("AtlasTexture_pxqxm")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [node name="ConceptUI" type="Control"]
@@ -139,6 +76,7 @@ alignment = 1
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 sprite_frames = SubResource("SpriteFrames_y2t5t")
 autoplay = "default"
+frame_progress = 0.390364
 
 [node name="Button_Spawn" type="Button" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AnimatedSprite2D"]
 self_modulate = Color(1, 1, 1, 0)
@@ -163,6 +101,7 @@ custom_minimum_size = Vector2(1000, 400)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+vertical_scroll_mode = 3
 
 [node name="ChestContainer" type="GridContainer" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/ScrollContainer"]
 layout_mode = 2
@@ -198,7 +137,8 @@ custom_minimum_size = Vector2(200.03, 500)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer"]
+[node name="TopRightImage" type="TextureRect" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("3_unwoq")

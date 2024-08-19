@@ -1,6 +1,6 @@
 extends Control
 
-@onready var main = $"../"
+@onready var main = $"../../"
 var SFX: StringName
 var Music: StringName
 var Music_index = 1
@@ -10,14 +10,9 @@ func _ready() -> void:
 	$MarginContainer/VBoxContainer/HBoxContainer3/SFXSlider.value = db_to_linear(AudioServer.get_bus_volume_db(2))
 	$MarginContainer/VBoxContainer/HBoxContainer2/MusicSlider.value = db_to_linear(AudioServer.get_bus_volume_db(1))
 
-
-
-
-
 func _on_resume_pressed() -> void:
 	main.pauseMenu()
 	
-
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()

@@ -1,33 +1,34 @@
 [gd_scene load_steps=7 format=3 uid="uid://iywoh6fbkjfr"]
 
 [ext_resource type="Script" path="res://Scripts/Main/main_scene.gd" id="1_u4rt4"]
-[ext_resource type="Script" path="res://Scripts/global.gd" id="1_y6mtq"]
+[ext_resource type="Script" path="res://Scripts/Dialogic/dialogic.gd" id="3_q6lgi"]
 [ext_resource type="PackedScene" uid="uid://ehjw00nb4qx" path="res://Scenes/Grid/concept_ui.tscn" id="3_ue52u"]
-[ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="4_mwv2o"]
+[ext_resource type="PackedScene" uid="uid://ofvxc8p1xp4t" path="res://Scenes/pause_menu.tscn" id="4_mwv2o"]
 [ext_resource type="AudioStream" uid="uid://dn0annnj17k6w" path="res://750217__nancy_sinclair__emotional-piano-and-haunting-strings.mp3" id="5_h272o"]
 [ext_resource type="AudioStream" uid="uid://vjnshk7ft7ib" path="res://switch17.wav" id="6_4u4gb"]
 
-[node name="Main Scene" type="Node2D"]
+[node name="Main Scene 1" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_u4rt4")
 
-[node name="ConceptUI" parent="." instance=ExtResource("3_ue52u")]
-process_mode = 1
-metadata/_edit_use_anchors_ = true
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
 
-[node name="PauseMenu" parent="." instance=ExtResource("4_mwv2o")]
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_mwv2o")]
 visible = false
+z_index = 1
+z_as_relative = false
 
-[node name="Score" type="Label" parent="."]
-offset_left = 1424.0
-offset_top = 1008.0
-offset_right = 1808.0
-offset_bottom = 1072.0
-theme_override_font_sizes/font_size = 40
-text = "Score: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("1_y6mtq")
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Dialogic" type="Node" parent="CanvasLayer2"]
+script = ExtResource("3_q6lgi")
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="ConceptUI" parent="CanvasLayer3" instance=ExtResource("3_ue52u")]
+process_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="music" type="AudioStreamPlayer2D" parent="."]

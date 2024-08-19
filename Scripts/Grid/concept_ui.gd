@@ -40,7 +40,7 @@ var hand_closed = load("res://Assets/MouseCursor/hand_closed.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	
 	for i in range(24):
