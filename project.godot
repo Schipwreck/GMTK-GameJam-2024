@@ -13,7 +13,9 @@ config_version=5
 config/name="GMTK-2024"
 run/main_scene="res://Scenes/title_screen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/image="res://Assets/Art/spacechickengames.png"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=1500
 
 [audio]
 
@@ -25,6 +27,7 @@ DataHandler="*res://Scripts/Data/DataHandler.gd"
 Global="*res://Scripts/global.gd"
 TransitionScene="*res://Scenes/transition_scene.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Popups="*res://Scenes/popups.tscn"
 
 [dialogic]
 
@@ -34,14 +37,18 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "intro_timeline": "res://Dialogic/intro_timeline.dtl",
-"main1_timeline": "res://main1_timeline.dtl"
+"main1_timeline": "res://main1_timeline.dtl",
+"main2_timeline": "res://Assets/Art/3 SteamMan/main2_timeline.dtl",
+"main3_timeline": "res://Assets/Art/3 SteamMan/main3_timeline.dtl",
+"score1_timeline": "res://Assets/Art/3 SteamMan/score1_timeline.dtl",
+"score2_timeline": "res://Assets/Art/3 SteamMan/score2_timeline.dtl"
 }
 variables={
 "response": ""
 }
 glossary/default_case_sensitive=true
 layout/style_list=[]
-layout/default_style="Default"
+layout/default_style=""
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
@@ -116,3 +123,7 @@ dialogic_default_action={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
