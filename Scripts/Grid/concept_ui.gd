@@ -43,15 +43,13 @@ func _ready():
 	
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	
-	for i in range(24):
-		create_slot()
-		
+	#for i in range(24):
+		#create_slot()
+		#
 	# when create_slot_chest() i can add functionality to add items
-	for i in range(600):
+	for i in range(525):
 		create_slot_chest()
-		# add items to slots
-		#populate_chest()
-	clear_grid()
+		
 	clear_grid_chest()
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
