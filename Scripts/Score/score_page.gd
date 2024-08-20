@@ -1,8 +1,15 @@
 extends Node
 
+@onready var animation = $TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2/Stars
+
+func _ready():
+	$TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/Score.text = "Score: %d" % Global.overallScore
+	var starAnim = str(Global.stars) + "stars"
+	animation.play(starAnim)
+
 # callback function
-func _process(_delta):
-	$Score.text = "Score: %d" % Global.overallScore
+func _process(float) -> void:
+	#$TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/Score.text = "Score: %d" % Global.overallScore
 	pass
 
 # continue button logic
@@ -11,7 +18,6 @@ func _on_continue_pressed():
 	TransitionScene.transition()
 	await TransitionScene.on_transition_finished
 	var string = ""
-	Global.stars = ""
 	
 	# increment level count by 1 every time continue is pressed
 	Global.levelCount += 1
@@ -19,14 +25,12 @@ func _on_continue_pressed():
 	# to add levels, increase value below
 	if Global.levelCount == 4:
 		
+		Global.levelCount = 1
 		# adding up overall scores
 		var sum = 0
 		for i in Global.arr.size():
 			sum += Global.arr[i]
 		Global.overallScore = sum
-		
-		# change scene to game end screen when level cap is hit
-		Global.levelCount = 1
 		string = "res://Scenes/End/endgame.tscn"
 		get_tree().change_scene_to_file(string)
 	else:

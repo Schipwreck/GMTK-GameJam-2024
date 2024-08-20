@@ -4,7 +4,7 @@ extends Node
 var overallScore = 0
 var levelCount = 1
 var arr = [] # to hold scores from previous levels
-var stars = ""
+var stars = 0
 var scorekeeper = 0
 var character = ""
 
@@ -21,7 +21,7 @@ func _calculateScore():
 	# you don't need to add break statements at the end of every block
 	# match cases automatically break out of every block by nature in GDscript
 	# use continue if you want to iterate through the next block
-	match character:
+	match Global.character:
 		"Granny":
 			weightModifier = 2.5
 			valueModifier = 2.5
@@ -30,20 +30,23 @@ func _calculateScore():
 	return score
 
 
-func _calculateStars():
+func _calculateStars(current_value):
 	# adjust these values when needed
-	if (scorekeeper >= 100):
-		stars = "* * * * *"
+	if (current_value >= 500):
+		stars = 5
 		return stars
-	if (scorekeeper > 80):
-		stars = "* * * *"
+	if (current_value >= 400):
+		stars = 4
 		return stars
-	if (scorekeeper > 60):
-		stars = "* * *"
+	if (current_value >= 300):
+		stars = 3
 		return stars
-	if (scorekeeper > 40):
-		stars = "* *"
+	if (current_value >= 200):
+		stars = 2
 		return stars
-	if (scorekeeper >= 0):
-		stars = "*"
+	if (current_value >= 100):
+		stars = 1
+		return stars
+	if (current_value > 0):
+		stars = 0
 		return stars
