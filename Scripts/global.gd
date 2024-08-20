@@ -30,23 +30,23 @@ func _calculateScore():
 	return score
 
 
-func _calculateStars(scorekeeper):
+func _calculateStars(current_value):
 	# adjust these values when needed
-	if (scorekeeper >= 5):
+	if (current_value >= 500):
 		stars = 5
 		return stars
-	if (scorekeeper == 4):
+	if (current_value >= 400):
 		stars = 4
 		return stars
-	if (scorekeeper == 3):
+	if (current_value >= 300):
 		stars = 3
 		return stars
-	if (scorekeeper == 2):
+	if (current_value >= 200):
 		stars = 2
 		return stars
-	if (scorekeeper == 1):
+	if (current_value >= 100):
 		stars = 1
 		return stars
-	if (scorekeeper == 0):
-		stars = 1
+	if (current_value > 0):
+		stars = 0
 		return stars

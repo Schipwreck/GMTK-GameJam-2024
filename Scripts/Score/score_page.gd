@@ -1,17 +1,15 @@
 extends Node
 
-@onready var animation = $AnimationPlayer
+@onready var animation = $TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2/Stars
 
 func _ready():
-	$Score.text = "Score: %d" % Global.overallScore
-	var starPath = "res://Assets/Stars/" + str(Global.stars) + ",0.png"
-	var image = Image.load_from_file(starPath)
-	var texture = ImageTexture.create_from_image(image)
-	$Sprite2D.texture = texture
+	$TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/Score.text = "Score: %d" % Global.overallScore
+	var starAnim = str(Global.stars) + "stars"
+	animation.play(starAnim)
 
 # callback function
-func _process(_delta):
-	$Score.text = "Score: %d" % Global.overallScore
+func _process(float) -> void:
+	#$TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/Score.text = "Score: %d" % Global.overallScore
 	pass
 
 # continue button logic

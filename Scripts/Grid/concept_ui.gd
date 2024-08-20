@@ -341,6 +341,7 @@ func _on_packitup_button_pressed():
 	# calc score goes here
 	Global.overallScore += current_value
 	Global.arr.push_back(current_value)
+	Global.stars = Global._calculateStars(current_value)
 	
 	# change scene
 	get_tree().change_scene_to_file("res://Scenes/Score/score_page.tscn")

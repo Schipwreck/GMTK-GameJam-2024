@@ -2,39 +2,146 @@
 
 [ext_resource type="Script" path="res://Scripts/global.gd" id="1_se2r3"]
 [ext_resource type="Script" path="res://Scripts/Score/score_page.gd" id="2_t6xn7"]
-[ext_resource type="Texture2D" uid="uid://r8mkqkfxunej" path="res://Assets/Stars/5,0.png" id="3_c1rev"]
-[ext_resource type="Texture2D" uid="uid://dbdhgqfe3fqm4" path="res://Assets/Stars/0,0.png" id="3_gglch"]
+[ext_resource type="Texture2D" uid="uid://cqskyr6gusvkj" path="res://Assets/Stars/star spritesheet.png" id="5_k8wqm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6h5k"]
+atlas = ExtResource("5_k8wqm")
+region = Rect2(0, 0, 616, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwof3"]
+atlas = ExtResource("5_k8wqm")
+region = Rect2(616, 0, 616, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_js2gu"]
+atlas = ExtResource("5_k8wqm")
+region = Rect2(1232, 0, 616, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1ghi"]
+atlas = ExtResource("5_k8wqm")
+region = Rect2(1848, 0, 616, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4sey"]
+atlas = ExtResource("5_k8wqm")
+region = Rect2(2464, 0, 616, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n75kn"]
+atlas = ExtResource("5_k8wqm")
+region = Rect2(3080, 0, 616, 101)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0hig8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6h5k")
+}],
+"loop": false,
+"name": &"0stars",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6h5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwof3")
+}],
+"loop": false,
+"name": &"1stars",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6h5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwof3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_js2gu")
+}],
+"loop": false,
+"name": &"2stars",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6h5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwof3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_js2gu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1ghi")
+}],
+"loop": false,
+"name": &"3stars",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6h5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwof3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_js2gu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1ghi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4sey")
+}],
+"loop": false,
+"name": &"4stars",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6h5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwof3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_js2gu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1ghi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4sey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n75kn")
+}],
+"loop": false,
+"name": &"5stars",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_xrj24"]
-length = 0.001
+length = 8.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2/Stars:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
+"update": 1,
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_gh5rc"]
 resource_name = "test"
 length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.266667, 0.7, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.15, 1.15), Vector2(1, 1), Vector2(1, 1)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_47byo"]
 _data = {
@@ -42,97 +149,90 @@ _data = {
 "test": SubResource("Animation_gh5rc")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n5tme"]
-atlas = ExtResource("3_c1rev")
-region = Rect2(0, 0, 123, 101)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dyt4u"]
-atlas = ExtResource("3_c1rev")
-region = Rect2(123, 0, 123, 101)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6pwvl"]
-atlas = ExtResource("3_c1rev")
-region = Rect2(246, 0, 123, 101)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kc23t"]
-atlas = ExtResource("3_c1rev")
-region = Rect2(369, 0, 123, 101)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ylaf"]
-atlas = ExtResource("3_c1rev")
-region = Rect2(492, 0, 123, 101)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0hig8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n5tme")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dyt4u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6pwvl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kc23t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8ylaf")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="ScorePage" type="Node2D"]
 script = ExtResource("2_t6xn7")
 
-[node name="Continue" type="Button" parent="."]
-offset_left = 530.0
-offset_top = 385.0
-offset_right = 655.0
-offset_bottom = 443.0
-text = "Continue"
-script = ExtResource("1_se2r3")
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
 
-[node name="Score" type="Label" parent="."]
-offset_left = 510.0
-offset_top = 303.0
-offset_right = 691.0
-offset_bottom = 370.0
-theme_override_font_sizes/font_size = 48
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Score" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
 text = "Score: 0"
 script = ExtResource("1_se2r3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(598, 234)
-texture = ExtResource("3_c1rev")
+[node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+alignment = 1
 
-[node name="Stars" type="TextureRect" parent="."]
-visible = false
-offset_left = 286.0
-offset_top = 154.0
-offset_right = 911.0
-offset_bottom = 314.0
-texture = ExtResource("3_c1rev")
-stretch_mode = 4
+[node name="TextureRect" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Stars" type="AnimatedSprite2D" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer2"]
+sprite_frames = SubResource("SpriteFrames_0hig8")
+animation = &"0stars"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Continue" type="Button" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "Continue"
+script = ExtResource("1_se2r3")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_47byo")
 }
 
-[node name="Stars Outline" type="TextureRect" parent="."]
-visible = false
-offset_left = 286.0
-offset_top = 154.0
-offset_right = 911.0
-offset_bottom = 314.0
-texture = ExtResource("3_gglch")
-stretch_mode = 4
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_0hig8")
-
-[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer3/Continue" to="." method="_on_continue_pressed"]
