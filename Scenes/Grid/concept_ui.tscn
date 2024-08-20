@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ehjw00nb4qx"]
+[gd_scene load_steps=14 format=3 uid="uid://ehjw00nb4qx"]
 
 [ext_resource type="Script" path="res://Scripts/Grid/concept_ui.gd" id="1_pss36"]
 [ext_resource type="Texture2D" uid="uid://crdkbb67qwm0n" path="res://Assets/jn_tempassets/PORTAL.png" id="2_xxwcq"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dfrcvgpq0fg4a" path="res://Assets/GabeJams/Drop_Whoosh.wav" id="7_g3o2n"]
 [ext_resource type="AudioStream" uid="uid://cxreged5jalp4" path="res://Assets/GabeJams/Metal_Heavy.wav" id="8_n5o3w"]
 [ext_resource type="AudioStream" uid="uid://tteac4kc7tdn" path="res://Assets/GabeJams/Rare_Drop.wav" id="8_nbq0p"]
+[ext_resource type="Script" path="res://Scripts/Data/DataHandler.gd" id="9_hymji"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_832av"]
 atlas = ExtResource("2_xxwcq")
@@ -244,6 +245,9 @@ bus = &"SFX"
 [node name="item_place" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_n5o3w")
 volume_db = -7.0
+
+[node name="datahandler" type="Node" parent="."]
+script = ExtResource("9_hymji")
 
 [connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AnimatedSprite2D/Button_Spawn" to="." method="_on_button_spawn_pressed"]
 [connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer5/Button_Spawn" to="." method="_on_packitup_button_pressed"]
