@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ck2wdewkt3an5"]
+[gd_scene load_steps=8 format=3 uid="uid://ck2wdewkt3an5"]
 
 [ext_resource type="Script" path="res://Scripts/global.gd" id="1_se2r3"]
 [ext_resource type="Script" path="res://Scripts/Score/score_page.gd" id="2_t6xn7"]
@@ -41,49 +41,6 @@ _data = {
 "RESET": SubResource("Animation_xrj24"),
 "test": SubResource("Animation_gh5rc")
 }
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n5tme"]
-atlas = ExtResource("3_c1rev")
-region = Rect2(0, 0, 123, 101)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dyt4u"]
-atlas = ExtResource("3_c1rev")
-region = Rect2(123, 0, 123, 101)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6pwvl"]
-atlas = ExtResource("3_c1rev")
-region = Rect2(246, 0, 123, 101)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kc23t"]
-atlas = ExtResource("3_c1rev")
-region = Rect2(369, 0, 123, 101)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ylaf"]
-atlas = ExtResource("3_c1rev")
-region = Rect2(492, 0, 123, 101)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0hig8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n5tme")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dyt4u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6pwvl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kc23t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8ylaf")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="ScorePage" type="Node2D"]
 script = ExtResource("2_t6xn7")
@@ -131,8 +88,5 @@ offset_right = 911.0
 offset_bottom = 314.0
 texture = ExtResource("3_gglch")
 stretch_mode = 4
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_0hig8")
 
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
