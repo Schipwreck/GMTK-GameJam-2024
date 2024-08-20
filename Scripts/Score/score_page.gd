@@ -2,12 +2,14 @@ extends Node
 
 # callback function
 func _process(_delta):
-	$Score.text = "Score: %s" % Global.stars
+	$Score.text = "Score: %d" % Global.overallScore
 	pass
 
 # continue button logic
 func _on_continue_pressed():
 	# empty string
+	TransitionScene.transition()
+	await TransitionScene.on_transition_finished
 	var string = ""
 	Global.stars = ""
 	

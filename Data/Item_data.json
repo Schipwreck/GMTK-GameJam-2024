@@ -1,20 +1,85 @@
 {
-  "1": {
-	"Name": "Item1",
-	"Value": 5,
-	"Weight": 10,
-	"Grid": "0,0/1,0/0,-1/1,-1", 
-  },
-  "1_Small": {
-	"Name": "Item2",
-	"Value": 10,
-	"Weight": 2,
-	"Grid": "0,0", 
-  },
-  "1_Large": {
-	"Name": "Item3",
-	"Value": 20,
-	"Weight": 50,
-	"Grid": "0,0/1,0/0,-1/1,-1/0,1/1,1/-1,0/-1,-1/-1,1", 
-  }
+	"1": {
+		"Name": "couch_default",
+		"Value": 5,
+		"Weight": 10,
+		"Grid": "0,0/1,0/-1,0/-2,0/0,1/1,1/-1,1/-2,1"
+		},
+			
+	"1_Small": {
+		"Name": "couch_small", 
+		"Value": 10, 
+		"Weight": 2, 
+		"Grid": "0,0/1,0" 
+	},
+		
+	"1_Large": {
+		"Name": "couch", 
+		"Value": 30, 
+		"Weight": 50, 
+		"Grid": "0,0/1,0/2,0/-1,0/-2,0/-3,0/0,1/1,1/2,1/-1,1/-2,1/-3,1/0,-1/1,-1/2,-1/-1,-1/-2,-1/-3,-1"
+	},
+		
+	"2": {
+		"Name": "carrot_default", 
+		"Value": 40, 
+		"Weight": 10, 
+		"Grid": "0,0/-1,0/0,1/-1,1"
+	},
+		
+	"2_Small": {
+		"Name": "carrot_small", 
+		"Value": 40, 
+		"Weight": 10, 
+		"Grid": "0,0"
+	},
+	
+	"2_Large": {
+		"Name": "carrot", 
+		"Value": 40, 
+		"Weight": 10, 
+		"Grid": "0,0/1,0/-1,0/0,-1/1,-1/-1,-1/0,1/1,1/-1,1"
+	},
+		
+	"3": {
+		"Name": "SuperWater_default", 
+		"Value": 40, 
+		"Weight": 10, 
+		"Grid": "0,0/1,0/0,-1/1,-1"
+	},
+		
+	"3_Small": {
+		"Name": "SuperWater_small",
+		"Value": 40, 
+		"Weight": 10, 
+		"Grid": "0,0"
+	},
+		
+	"3_Large": {
+		"Name": "SuperWater", 
+		"Value": 40, 
+		"Weight": 10, 
+		"Grid": "0,0/1,0/-1,0/0,1/1,1/-1,1/0,-1/0,-2" 
+	},
+		
+	"4": {
+		"Name": "diamond_default",
+		"Value":200,
+		"Weight": 5, 
+		"Grid": "0,0/1,0/0,-1/1,-1"
+	}, 
+		
+	"4_Small": {
+		"Name": "diamond_small",
+		"Value":200,
+		"Weight": 5, 
+		"Grid": "0,0"
+	},
+		
+	"4_Large": {
+		"Name": "diamond",
+		"Value":200,
+		"Weight": 5, 
+		"Grid": "0,0/1,0/-1,0/0,1/1,1/-1,1/0,-1/1,-1/-1,-1"
+	}
 }

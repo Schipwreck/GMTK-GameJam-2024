@@ -11,6 +11,8 @@ extends Control
 @onready var scroll_chest_container = $TextureRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/ScrollContainer
 @onready var col_count_chest = chest_container.columns
 
+@onready var black_hole_sprite = $TextureRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AnimatedSprite2D
+
 @onready var text_value = %CurrValue
 @onready var text_weight = %CurrWeight
 
@@ -33,20 +35,24 @@ var icon_anchor_chest : Vector2
 var current_value = 0
 var current_weight = 0
 
-
+var hand_open = load("res://Assets/MouseCursor/hand_open.png")
+var hand_closed = load("res://Assets/MouseCursor/hand_closed.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	
 	for i in range(24):
 		create_slot()
 		
 	# when create_slot_chest() i can add functionality to add items
-	for i in range(598):
+	for i in range(600):
 		create_slot_chest()
 		# add items to slots
 		#populate_chest()
+	clear_grid()
+	clear_grid_chest()
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -128,31 +134,35 @@ func _on_slot_mouse_exited_chest(a_Slot):
 	
 func _on_button_spawn_pressed() -> void:
 	
-	# new_item.load_item(str(randi_range(1, 4) + "_Small") 
-	
-	var new_item = item_scene.instantiate()
-	add_child(new_item)
-	
-	#curr_item_list is a mutable duplicate of our master list. 
-	#check if its empty, then refresh loot pool
-	if curr_item_list.is_empty(): 
-		curr_item_list = DataHandler.parsed_item_list.duplicate()
-	
-	var curr_item = curr_item_list.pick_random()
-	
-	new_item.load_item(curr_item)
-	new_item.selected = true
-	item_held = new_item
-	
-	var curr_item_index = curr_item_list.find(curr_item)
-	curr_item_list.remove_at(curr_item_index)
+	 
+	if item_held == null:
+		Input.set_custom_mouse_cursor(hand_closed)
+		var new_item = item_scene.instantiate()
+		#new_item. = black_hole_sprite.global_position
+		add_child(new_item)
+		
+		
+		
+		#curr_item_list is a mutable duplicate of our master list. 
+		#check if its empty, then refresh loot pool
+		if curr_item_list.is_empty(): 
+			curr_item_list = DataHandler.parsed_item_list.duplicate()
+		
+		var curr_item = curr_item_list.pick_random()
+		
+		new_item.load_item(curr_item)
+		new_item.selected = true
+		item_held = new_item
+		
+		var curr_item_index = curr_item_list.find(curr_item)
+		curr_item_list.remove_at(curr_item_index)
 	
 	
 func check_slot_availability(a_Slot) -> void:
 	for grid in item_held.item_grids:
 		var grid_to_check = a_Slot.slot_ID + grid[0] + grid[1] * col_count
 		var line_switch_check = a_Slot.slot_ID % col_count + grid[0]
-		if line_switch_check < 0 or  line_switch_check >= col_count:
+		if line_switch_check < 0 or line_switch_check >= col_count:
 			can_place = false
 			return
 		if grid_to_check < 0 or grid_to_check >= grid_array.size():
@@ -250,6 +260,7 @@ func place_item():
 	text_weight.text = "Current Weight of Grid: " + str(current_weight)
 		
 	item_held = null
+	Input.set_custom_mouse_cursor(hand_open)
 	clear_grid()
 	
 func place_item_chest():
@@ -269,13 +280,15 @@ func place_item_chest():
 		chest_array[grid_to_check].state = chest_array[grid_to_check].States.TAKEN
 		chest_array[grid_to_check].item_stored = item_held
 		
+	Input.set_custom_mouse_cursor(hand_open)	
 	item_held = null
 	clear_grid_chest()
 
 func pick_item():
 	if not current_slot or not current_slot.item_stored:
 		return
-		
+	
+	Input.set_custom_mouse_cursor(hand_closed)	
 	item_held = current_slot.item_stored
 	item_held.selected = true
 	
@@ -300,6 +313,7 @@ func pick_item_chest():
 	if not current_slot_chest or not current_slot_chest.item_stored:
 		return
 		
+	Input.set_custom_mouse_cursor(hand_closed)		
 	item_held = current_slot_chest.item_stored
 	item_held.selected = true
 	
@@ -325,7 +339,8 @@ func _on_packitup_button_pressed():
 	print("Level " + str(Global.levelCount) + " passed!")
 	
 	# calc score goes here
-	Global.overallScore += 1
+	Global.overallScore += current_value
+	Global.arr.push_back(current_value)
 	
 	# change scene
 	get_tree().change_scene_to_file("res://Scenes/Score/score_page.tscn")

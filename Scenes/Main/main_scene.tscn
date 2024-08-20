@@ -1,91 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://iywoh6fbkjfr"]
+[gd_scene load_steps=7 format=3 uid="uid://iywoh6fbkjfr"]
 
 [ext_resource type="Script" path="res://Scripts/Main/main_scene.gd" id="1_u4rt4"]
-[ext_resource type="Script" path="res://Scripts/global.gd" id="1_y6mtq"]
+[ext_resource type="Script" path="res://Scripts/Dialogic/dialogic.gd" id="3_q6lgi"]
 [ext_resource type="PackedScene" uid="uid://ehjw00nb4qx" path="res://Scenes/Grid/concept_ui.tscn" id="3_ue52u"]
+[ext_resource type="PackedScene" uid="uid://ofvxc8p1xp4t" path="res://Scenes/pause_menu.tscn" id="4_mwv2o"]
+[ext_resource type="AudioStream" uid="uid://dn0annnj17k6w" path="res://750217__nancy_sinclair__emotional-piano-and-haunting-strings.mp3" id="5_h272o"]
+[ext_resource type="AudioStream" uid="uid://vjnshk7ft7ib" path="res://switch17.wav" id="6_4u4gb"]
 
-[node name="Main Scene" type="Node2D"]
+[node name="Main Scene 1" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_u4rt4")
 
-[node name="Score" type="Label" parent="."]
-offset_left = 1472.0
-offset_right = 1856.0
-offset_bottom = 64.0
-theme_override_font_sizes/font_size = 40
-text = "Score: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("1_y6mtq")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_mwv2o")]
+visible = false
+z_index = 1
+z_as_relative = false
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Dialogic" type="Node" parent="CanvasLayer2"]
+script = ExtResource("3_q6lgi")
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="ConceptUI" parent="CanvasLayer3" instance=ExtResource("3_ue52u")]
+process_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="ContainerSize" type="ColorRect" parent="."]
-offset_left = 128.0
-offset_top = 696.0
-offset_right = 1344.0
-offset_bottom = 1080.0
-metadata/_edit_use_anchors_ = true
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_h272o")
+autoplay = true
+bus = &"Music"
 
-[node name="LooseItems" type="ColorRect" parent="."]
-offset_left = 160.0
-offset_top = 272.0
-offset_right = 1312.0
-offset_bottom = 640.0
-color = Color(0.890196, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="SideBar" type="ColorRect" parent="."]
-offset_left = 1472.0
-offset_top = 64.0
-offset_right = 1856.0
-offset_bottom = 1064.0
-color = Color(0.188235, 1, 0.258824, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Nameplate" type="ColorRect" parent="."]
-offset_left = 1536.0
-offset_top = 472.0
-offset_right = 1792.0
-offset_bottom = 536.0
-color = Color(0.188235, 0.388235, 0.258824, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Chest" type="ColorRect" parent="."]
-offset_left = 160.0
-offset_right = 1312.0
-offset_bottom = 176.0
-color = Color(0, 0, 1, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="SpawnButton" type="Button" parent="."]
-offset_left = 640.0
-offset_top = 192.0
-offset_right = 832.0
-offset_bottom = 256.0
-text = "Spawn Item"
-metadata/_edit_use_anchors_ = true
-
-[node name="Portrait" type="ColorRect" parent="."]
-offset_left = 1504.0
-offset_top = 128.0
-offset_right = 1824.0
-offset_bottom = 448.0
-color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Weight" type="ColorRect" parent="."]
-offset_left = 1536.0
-offset_top = 584.0
-offset_right = 1792.0
-offset_bottom = 672.0
-color = Color(0.188235, 0.388235, 0.258824, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Value" type="ColorRect" parent="."]
-offset_left = 1536.0
-offset_top = 704.0
-offset_right = 1792.0
-offset_bottom = 800.0
-color = Color(0.188235, 0.388235, 0.258824, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ConceptUI" parent="." instance=ExtResource("3_ue52u")]
+[node name="sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_4u4gb")
+bus = &"SFX"
