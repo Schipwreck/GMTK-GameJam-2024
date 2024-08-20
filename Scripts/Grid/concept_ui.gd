@@ -65,20 +65,23 @@ func _process(_delta: float) -> void:
 				place_item_chest()
 		# If Shrink or Enlarge
 		if Input.is_action_just_pressed("shrinkRay"):
-			var new_item = item_scene.instantiate()
-			add_child(new_item)
-			new_item.load_item(item_held.item_ID.split("_")[0] + "_Small")
-			built_to_scale_my_guy(new_item)
+			if !item_held.item_ID.contains("Small"):
+				var new_item = item_scene.instantiate()
+				add_child(new_item)
+				new_item.load_item(item_held.item_ID.split("_")[0] + "_Small")
+				built_to_scale_my_guy(new_item)
 		if Input.is_action_just_pressed("biggerRay"):
-			var new_item = item_scene.instantiate()
-			add_child(new_item)
-			new_item.load_item(item_held.item_ID.split("_")[0] + "_Large")
-			built_to_scale_my_guy(new_item)
+			if !item_held.item_ID.contains("Large"):
+				var new_item = item_scene.instantiate()
+				add_child(new_item)
+				new_item.load_item(item_held.item_ID.split("_")[0] + "_Large")
+				built_to_scale_my_guy(new_item)
 		if Input.is_action_just_pressed("defaultAgain"):
-			var new_item = item_scene.instantiate()
-			add_child(new_item)
-			new_item.load_item(item_held.item_ID.split("_")[0])
-			built_to_scale_my_guy(new_item)
+			if item_held.item_ID.contains("Large") or item_held.item_ID.contains("Small"):
+				var new_item = item_scene.instantiate()
+				add_child(new_item)
+				new_item.load_item(item_held.item_ID.split("_")[0])
+				built_to_scale_my_guy(new_item)
 	else:
 		if Input.is_action_just_pressed("mouse_leftclick"):
 			if scroll_container.get_global_rect().has_point(get_global_mouse_position()):
