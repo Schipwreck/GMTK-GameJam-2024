@@ -1,12 +1,18 @@
 extends Node2D
 
-
 @onready var pause_menu = $CanvasLayer/PauseMenu
 @onready var concept_ui = $CanvasLayer3/ConceptUI
 var paused = false
 
 func _ready():
 	Global.character = "" # add character name here
+	
+	concept_ui.grid_container.columns = 10
+	concept_ui.col_count = 10
+	for i in range(40):
+		concept_ui.create_slot()
+		
+	concept_ui.clear_grid()
 
 # callback function
 func _process(_delta):
