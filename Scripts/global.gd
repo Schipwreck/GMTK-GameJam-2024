@@ -47,6 +47,6 @@ func _calculateStars(current_value):
 	if (current_value >= 100):
 		stars = 1
 		return stars
-	if (current_value > 0):
+	if (current_value >= 0):
 		stars = 0
 		return stars

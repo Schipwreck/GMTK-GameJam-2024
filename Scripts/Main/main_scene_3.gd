@@ -6,7 +6,14 @@ var paused = false
 
 func _ready():
 	Global.character = "" # add character name here
-
+	
+	concept_ui.grid_container.columns = 14
+	concept_ui.col_count = 14
+	for i in range(84):
+		concept_ui.create_slot()
+		
+	concept_ui.clear_grid()
+	
 # callback function
 func _process(_delta):
 	if Input.is_action_just_pressed("Pause"):
