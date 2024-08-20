@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Grid/item.gd" id="1_itd6k"]
 
 [node name="Item" type="Node2D"]
-position = Vector2(670, 103)
+position = Vector2(529, 158)
 script = ExtResource("1_itd6k")
 
 [node name="Icon" type="TextureRect" parent="."]
