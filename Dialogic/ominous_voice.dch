@@ -10,10 +10,10 @@
 },
 "default_portrait": "",
 "description": "",
-"display_name": "Ominous Voice",
+"display_name": "Narrator",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {},
-"scale": 1.0
+"scale": 0.97
 }
