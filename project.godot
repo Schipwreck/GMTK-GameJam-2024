@@ -28,14 +28,8 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={
-"ominous_voice": "res://Dialogic/ominous_voice.dch",
-"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
-}
-directories/dtl_directory={
-"intro_timeline": "res://Dialogic/intro_timeline.dtl",
-"main1_timeline": "res://main1_timeline.dtl"
-}
+directories/dch_directory={}
+directories/dtl_directory={}
 variables={
 "response": ""
 }
