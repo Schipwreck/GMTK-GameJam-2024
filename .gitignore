@@ -16,3 +16,6 @@ mono_crash.*.json
 
 # Ignore addons folder
 addons/
+
+# Ignore .tmp files
+*.tmp
