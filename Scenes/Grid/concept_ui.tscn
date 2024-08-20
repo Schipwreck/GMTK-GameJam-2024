@@ -1,8 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://ehjw00nb4qx"]
+[gd_scene load_steps=13 format=3 uid="uid://ehjw00nb4qx"]
 
 [ext_resource type="Script" path="res://Scripts/Grid/concept_ui.gd" id="1_pss36"]
 [ext_resource type="Texture2D" uid="uid://crdkbb67qwm0n" path="res://Assets/jn_tempassets/PORTAL.png" id="2_xxwcq"]
 [ext_resource type="Texture2D" uid="uid://i5q6ymayes85" path="res://Assets/jn_tempassets/level1eventandbckgrnd.png" id="3_unwoq"]
+[ext_resource type="AudioStream" uid="uid://cf66n1pr0bjc5" path="res://Assets/GabeJams/Item_Pick.wav" id="4_e5rbs"]
+[ext_resource type="AudioStream" uid="uid://cxb48nhi5ow33" path="res://Assets/GabeJams/Discard_Item.wav" id="5_tmsmw"]
+[ext_resource type="AudioStream" uid="uid://dfrcvgpq0fg4a" path="res://Assets/GabeJams/Drop_Whoosh.wav" id="7_g3o2n"]
+[ext_resource type="AudioStream" uid="uid://cxreged5jalp4" path="res://Assets/GabeJams/Metal_Heavy.wav" id="8_n5o3w"]
+[ext_resource type="AudioStream" uid="uid://tteac4kc7tdn" path="res://Assets/GabeJams/Rare_Drop.wav" id="8_nbq0p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_832av"]
 atlas = ExtResource("2_xxwcq")
@@ -216,6 +221,29 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 40
 text = "Send Man
 Alrighta Man"
+
+[node name="item_interact" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_e5rbs")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="item_rotate" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_tmsmw")
+volume_db = -10.306
+bus = &"SFX"
+
+[node name="spawning_item" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_g3o2n")
+bus = &"SFX"
+
+[node name="change_size" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_nbq0p")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="item_place" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_n5o3w")
+volume_db = -7.0
 
 [connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AnimatedSprite2D/Button_Spawn" to="." method="_on_button_spawn_pressed"]
 [connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer5/Button_Spawn" to="." method="_on_packitup_button_pressed"]

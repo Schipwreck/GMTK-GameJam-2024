@@ -57,7 +57,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	
-	
 	if item_held:
 		if Input.is_action_just_pressed("rotate_item"):
 			rotate_item()
@@ -88,7 +87,6 @@ func _process(_delta: float) -> void:
 				pick_item()
 			if scroll_chest_container.get_global_rect().has_point(get_global_mouse_position()):
 				pick_item_chest()
-			
 func create_slot():
 	var new_slot = slot_scene.instantiate()
 	new_slot.slot_ID = grid_array.size()
@@ -133,6 +131,7 @@ func _on_slot_mouse_exited_chest(a_Slot):
 		current_slot_chest = null
 	
 func _on_button_spawn_pressed() -> void:
+	$spawning_item.play()
 	
 	 
 	if item_held == null:
@@ -230,6 +229,7 @@ func clear_grid_chest():
 		
 func rotate_item():
 	item_held.rotate_item()
+	$item_rotate.play()
 	clear_grid()
 	clear_grid_chest()
 	if current_slot:
@@ -238,12 +238,11 @@ func rotate_item():
 		_on_slot_mouse_entered_chest(current_slot_chest)
 
 func place_item():
+	$item_place.play()
 	if not can_place or not current_slot:
 		return 
-		
 	var calculated_grid_id = current_slot.slot_ID + icon_anchor.x * col_count + icon_anchor.y
 	item_held._snap_to(grid_array[calculated_grid_id].global_position)
-
 	item_held.get_parent().remove_child(item_held)
 	grid_container.add_child(item_held)
 	item_held.global_position = get_global_mouse_position()
@@ -264,6 +263,7 @@ func place_item():
 	clear_grid()
 	
 func place_item_chest():
+	$item_place.play()
 	if not can_place_chest or not current_slot_chest:
 		return 
 		
@@ -285,10 +285,12 @@ func place_item_chest():
 	clear_grid_chest()
 
 func pick_item():
+	$item_interact.play()
 	if not current_slot or not current_slot.item_stored:
 		return
 	
-	Input.set_custom_mouse_cursor(hand_closed)	
+	Input.set_custom_mouse_cursor(hand_closed)
+		
 	item_held = current_slot.item_stored
 	item_held.selected = true
 	
@@ -310,6 +312,7 @@ func pick_item():
 	set_grids.call_deferred(current_slot)
 
 func pick_item_chest():
+	$item_interact.play()
 	if not current_slot_chest or not current_slot_chest.item_stored:
 		return
 		
@@ -335,9 +338,9 @@ func pick_item_chest():
 	#new_item.load_item(str(randi_range(1, 4)))
 	
 func _on_packitup_button_pressed():
+	$spawning_item.play()
 	# debug message
 	print("Level " + str(Global.levelCount) + " passed!")
-	
 	# calc score goes here
 	Global.overallScore += current_value
 	Global.arr.push_back(current_value)
@@ -347,6 +350,7 @@ func _on_packitup_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Score/score_page.tscn")
 	
 func built_to_scale_my_guy(new_item):
+	$change_size.play()
 	new_item.selected = true
 	remove_child(item_held)
 	item_held = new_item
@@ -356,3 +360,4 @@ func built_to_scale_my_guy(new_item):
 		_on_slot_mouse_entered(current_slot)
 	if current_slot_chest:
 		_on_slot_mouse_entered_chest(current_slot_chest)
+		
