@@ -1,0 +1,129 @@
+[gd_scene load_steps=12 format=3 uid="uid://ofvxc8p1xp4t"]
+
+[ext_resource type="Script" path="res://Scripts/Pause/pause_menu.gd" id="1_3edn0"]
+[ext_resource type="Shader" path="res://Scenes/Shaders/pause_menu.gdshader" id="2_1reep"]
+[ext_resource type="Texture2D" uid="uid://bwckeq1xryimo" path="res://Assets/Dark Fantasy/Blurry_popup x2.png" id="3_6dnog"]
+[ext_resource type="Texture2D" uid="uid://mgcths5otwm6" path="res://Assets/Dark Fantasy/Slider_components3.png" id="4_uon3i"]
+[ext_resource type="Texture2D" uid="uid://cqlpre2bqlvwp" path="res://Assets/Dark Fantasy/Big Slider_components3.png" id="5_bp76d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r8ff6"]
+shader = ExtResource("2_1reep")
+shader_parameter/amount = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8oxyq"]
+bg_color = Color(0.568627, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gcjr"]
+bg_color = Color(0.568627, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_n56bq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nksi7"]
+bg_color = Color(0.568627, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hoe0u"]
+bg_color = Color(0.568627, 0, 0, 1)
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3edn0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_r8ff6")
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 448.0
+offset_right = 1152.0
+offset_bottom = 640.0
+texture = ExtResource("3_6dnog")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 544.0
+scale = Vector2(2, 2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Quit
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(116, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_icons/grabber = ExtResource("4_uon3i")
+theme_override_icons/grabber_highlight = ExtResource("5_bp76d")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_8oxyq")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_2gcjr")
+max_value = 1.0
+step = 0.001
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SFXSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(116, 0)
+layout_mode = 2
+mouse_filter = 1
+theme = SubResource("Theme_n56bq")
+theme_override_icons/grabber = ExtResource("4_uon3i")
+theme_override_icons/grabber_highlight = ExtResource("5_bp76d")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_nksi7")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_hoe0u")
+max_value = 1.0
+step = 0.001
+
+[node name="MusicLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 712.0
+offset_top = 536.0
+offset_right = 832.0
+offset_bottom = 578.0
+theme_override_font_sizes/font_size = 30
+text = "Music:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFXLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 712.0
+offset_top = 576.0
+offset_right = 832.0
+offset_bottom = 618.0
+theme_override_font_sizes/font_size = 30
+text = "SFX:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer2/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer3/SFXSlider" to="." method="_on_sfx_slider_value_changed"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdiwsxpeg3fwc"]
 
-[ext_resource type="Texture2D" uid="uid://cflhqkcm6mqbx" path="res://Assets/jn_tempassets/inventory/16x16 Item holder.png" id="1_sq4g2"]
+[ext_resource type="Texture2D" uid="uid://cflhqkcm6mqbx" path="res://Assets/Grid/16x16 Item holder.png" id="1_sq4g2"]
 [ext_resource type="Script" path="res://Scripts/Grid/slot.gd" id="2_vetmi"]
 
 [node name="Slot" type="TextureRect"]

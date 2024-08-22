@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce42xrofakgmi"]
+[gd_scene load_steps=7 format=3 uid="uid://ce42xrofakgmi"]
 
 [ext_resource type="Script" path="res://Scripts/End/endgame.gd" id="1_b2ui4"]
-[ext_resource type="Script" path="res://Scripts/global.gd" id="2_w7isg"]
+[ext_resource type="Script" path="res://Scripts/Main/global.gd" id="2_w7isg"]
+[ext_resource type="Theme" uid="uid://ba3nbvmkw7acy" path="res://Assets/Themes/Buttons.tres" id="3_sox2p"]
+[ext_resource type="Texture2D" uid="uid://0lnyy8ovealn" path="res://Assets/Background/back.png" id="4_67w7r"]
+[ext_resource type="Texture2D" uid="uid://dpc3nqpfy0lyr" path="res://Assets/Background/middle.png" id="5_l88ds"]
+[ext_resource type="FontFile" uid="uid://bojdo3yh6x40l" path="res://Assets/Font/alagard.ttf" id="6_vgxvn"]
 
 [node name="Endgame" type="Control"]
 layout_mode = 3
@@ -12,47 +16,103 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b2ui4")
 
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_67w7r")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("5_l88ds")
+
 [node name="previous_level_1" type="Label" parent="."]
 layout_mode = 0
-offset_left = 360.0
-offset_top = 114.0
-offset_right = 478.0
-offset_bottom = 137.0
+offset_left = 656.0
+offset_top = 416.0
+offset_right = 1008.0
+offset_bottom = 480.0
+theme_override_fonts/font = ExtResource("6_vgxvn")
+theme_override_font_sizes/font_size = 50
 text = "Level 1 Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("2_w7isg")
 
 [node name="previous_level_2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 361.0
-offset_top = 138.0
-offset_right = 479.0
-offset_bottom = 161.0
+offset_left = 656.0
+offset_top = 488.0
+offset_right = 1009.0
+offset_bottom = 552.0
+theme_override_fonts/font = ExtResource("6_vgxvn")
+theme_override_font_sizes/font_size = 50
 text = "Level 2 Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("2_w7isg")
 
 [node name="previous_level_3" type="Label" parent="."]
 layout_mode = 0
-offset_left = 362.0
-offset_top = 163.0
-offset_right = 480.0
-offset_bottom = 186.0
+offset_left = 648.0
+offset_top = 560.0
+offset_right = 1016.0
+offset_bottom = 624.0
+theme_override_fonts/font = ExtResource("6_vgxvn")
+theme_override_font_sizes/font_size = 50
 text = "Level 3 Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("2_w7isg")
 
 [node name="quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 399.0
-offset_top = 284.0
-offset_right = 441.0
-offset_bottom = 315.0
+offset_left = 688.0
+offset_top = 744.0
+offset_right = 976.0
+offset_bottom = 880.0
+theme = ExtResource("3_sox2p")
+theme_override_fonts/font = ExtResource("6_vgxvn")
+theme_override_font_sizes/font_size = 50
 text = "Quit"
 
 [node name="Score" type="Label" parent="."]
 layout_mode = 0
-offset_left = 358.0
-offset_top = 227.0
-offset_right = 478.0
-offset_bottom = 250.0
+offset_left = 560.0
+offset_top = 632.0
+offset_right = 1104.0
+offset_bottom = 704.0
+theme_override_fonts/font = ExtResource("6_vgxvn")
+theme_override_font_sizes/font_size = 75
 text = "Overall Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1408.0
+offset_top = 64.0
+offset_right = 1856.0
+offset_bottom = 768.0
+theme_override_fonts/font = ExtResource("6_vgxvn")
+theme_override_font_sizes/font_size = 40
+text = "Devs:
+Justin Negron
+Jacob Schipman
+Ian Gerodias
+Kenny Nguyen
+
+Art Team:
+Nick Carandang
+Gabriel Comeau
+
+Project Manager:
+Atmerson Atienza
+
+Creative Proccess Team:
+Mikem Munoz
+"
 
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

@@ -8,7 +8,7 @@ func _ready():
 	animation.play(starAnim)
 
 # callback function
-func _process(float) -> void:
+func _process(_float) -> void:
 	#$TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/Score.text = "Score: %d" % Global.overallScore
 	pass
 

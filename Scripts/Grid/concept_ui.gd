@@ -11,12 +11,14 @@ extends Control
 @onready var scroll_chest_container = $TextureRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/ScrollContainer
 @onready var col_count_chest = chest_container.columns
 
-@onready var black_hole_sprite = $TextureRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/AnimatedSprite2D
+@onready var black_hole_sprite = $TextureRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Button_Spawn/AnimatedSprite2D
 
 @onready var text_value = %CurrValue
 @onready var text_weight = %CurrWeight
 
 @onready var curr_item_list = DataHandler.parsed_item_list.duplicate()
+
+@onready var submit_button = $TextureRect/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Button_Spawn
 
 var item_held = null
 
@@ -42,7 +44,6 @@ var hand_closed = load("res://Assets/MouseCursor/hand_closed.png")
 func _ready():
 	
 	process_mode = Node.PROCESS_MODE_PAUSABLE
-	
 	#for i in range(24):
 		#create_slot()
 		#
@@ -119,13 +120,13 @@ func _on_slot_mouse_entered_chest(a_Slot):
 		check_slot_availability_chest(current_slot_chest)
 		set_grids_chest.call_deferred(current_slot_chest)
 	
-func _on_slot_mouse_exited(a_Slot):
+func _on_slot_mouse_exited(_a_Slot):
 	clear_grid()
 	
 	if not grid_container.get_global_rect().has_point(get_global_mouse_position()):
 		current_slot = null
 		
-func _on_slot_mouse_exited_chest(a_Slot):
+func _on_slot_mouse_exited_chest(_a_Slot):
 	clear_grid_chest()
 	
 	if not chest_container.get_global_rect().has_point(get_global_mouse_position()):
@@ -338,17 +339,24 @@ func pick_item_chest():
 	#add_child(new_item)
 	#new_item.load_item(str(randi_range(1, 4)))
 	
-func _on_packitup_button_pressed():
+func _on_packitup_button_pressed() -> void:
+	submit_button.disabled = true
 	$spawning_item.play()
 	# debug message
-	print("Level " + str(Global.levelCount) + " passed!")
+	#print("Level " + str(Global.levelCount) + " passed!")
 	# calc score goes here
+	
+	TransitionScene.transition()
+	await TransitionScene.on_transition_finished
+	
 	Global.overallScore += current_value
 	Global.arr.push_back(current_value)
 	Global.stars = Global._calculateStars(current_value)
 	
 	# change scene
-	get_tree().change_scene_to_file("res://Scenes/Score/score_page.tscn")
+	if submit_button.disabled == true:
+		get_tree().change_scene_to_file("res://Scenes/Score/score_page.tscn")
+	submit_button.disabled = false
 	
 func built_to_scale_my_guy(new_item):
 	$change_size.play()

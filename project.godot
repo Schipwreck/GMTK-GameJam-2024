@@ -11,44 +11,35 @@ config_version=5
 [application]
 
 config/name="GMTK-2024"
-run/main_scene="res://Scenes/title_screen.tscn"
+run/main_scene="res://Scenes/Main/title_screen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-boot_splash/image="res://Assets/Art/spacechickengames.png"
 config/icon="res://icon.svg"
-boot_splash/minimum_display_time=1500
 
 [audio]
 
-buses/default_bus_layout="res://MainSound.tres"
+buses/default_bus_layout="res://Audio/MainSound.tres"
 
 [autoload]
 
 DataHandler="*res://Scripts/Data/DataHandler.gd"
-Global="*res://Scripts/global.gd"
-TransitionScene="*res://Scenes/transition_scene.tscn"
+Global="*res://Scripts/Main/global.gd"
+TransitionScene="*res://Scenes/Transitions/transition_scene.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-Popups="*res://Scenes/popups.tscn"
 
 [dialogic]
 
 directories/dch_directory={
-"ominous_voice": "res://Dialogic/ominous_voice.dch",
-"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
+"ominous_voice": "res://Dialogic/ominous_voice.dch"
 }
 directories/dtl_directory={
-"intro_timeline": "res://Dialogic/intro_timeline.dtl",
-"main1_timeline": "res://main1_timeline.dtl",
-"main2_timeline": "res://Assets/Art/3 SteamMan/main2_timeline.dtl",
-"main3_timeline": "res://Assets/Art/3 SteamMan/main3_timeline.dtl",
-"score1_timeline": "res://Assets/Art/3 SteamMan/score1_timeline.dtl",
-"score2_timeline": "res://Assets/Art/3 SteamMan/score2_timeline.dtl"
+"main1_timeline": "res://Dialogic/main1_timeline.dtl"
 }
 variables={
 "response": ""
 }
 glossary/default_case_sensitive=true
 layout/style_list=[]
-layout/default_style=""
+layout/default_style="Default"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
@@ -85,7 +76,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 shrinkRay={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"location":0,"echo":false,"script":null)
 ]
 }
 biggerRay={
@@ -95,7 +86,7 @@ biggerRay={
 }
 defaultAgain={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"location":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
 ]
 }
 rotate_item={

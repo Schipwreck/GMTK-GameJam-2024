@@ -6,5 +6,5 @@ func _ready():
 	Dialogic.start("main1_timeline")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass

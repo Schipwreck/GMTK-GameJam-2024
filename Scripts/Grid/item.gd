@@ -19,7 +19,7 @@ func load_item(a_ItemID : String) -> void:
 	item_ID = a_ItemID
 	item_value = DataHandler.item_data[a_ItemID]["Value"]
 	item_weight = DataHandler.item_data[a_ItemID]["Weight"]
-	var Icon_path = "res://Assets/jn_tempassets/" + DataHandler.item_data[a_ItemID]["Name"] + ".png"
+	var Icon_path = "res://Assets/Grid/" + DataHandler.item_data[a_ItemID]["Name"] + ".png"
 	IconRect_path.texture = load(Icon_path)
 	for grid in DataHandler.item_grid_data[str(a_ItemID)]:
 		var converter_array := []

@@ -17,5 +17,8 @@ mono_crash.*.json
 # Ignore addons folder
 addons/
 
+# Ignore Assets folder, includes paid assets
+Assets/
+
 # Ignore .tmp files
 *.tmp

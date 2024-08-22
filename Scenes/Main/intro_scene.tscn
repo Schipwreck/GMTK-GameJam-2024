@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg5puquunsab6"]
+
+[sub_resource type="GDScript" id="GDScript_f1wct"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	#Dialogic.start(\"intro_timeline\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="IntroScene" type="Node2D"]
+script = SubResource("GDScript_f1wct")

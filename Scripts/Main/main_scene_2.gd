@@ -1,5 +1,6 @@
 extends Node2D
 
+
 @onready var pause_menu = $CanvasLayer/PauseMenu
 @onready var concept_ui = $CanvasLayer3/ConceptUI
 var paused = false
@@ -11,7 +12,7 @@ func _ready():
 	concept_ui.col_count = 10
 	for i in range(40):
 		concept_ui.create_slot()
-		
+
 	concept_ui.clear_grid()
 
 # callback function
@@ -34,7 +35,7 @@ func _on_packitup_button_pressed():
 	TransitionScene.transition()
 	await TransitionScene.on_transition_finished
 	# debug message
-	print("Level " + str(Global.levelCount) + " passed!")
+	#print("Level " + str(Global.levelCount) + " passed!")
 	
 	## storing score in placeholder int
 	#Global.scorekeeper = Global._calculateScore()

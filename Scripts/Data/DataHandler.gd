@@ -7,7 +7,7 @@ var parsed_item_list := []
 @onready var item_data_path = "res://Data/Item_data_" + str(Global.levelCount) + ".json"
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(item_data_path)
+	#print(item_data_path)
 	load_data(item_data_path)
 	set_grid_data()
 
@@ -26,4 +26,4 @@ func set_grid_data():
 		for point in item_data[item]["Grid"].split("/"):
 			temp_grid_array.push_back(point.split(","))
 		item_grid_data[item] = temp_grid_array
-	print(item_grid_data)
+	#print(item_grid_data)

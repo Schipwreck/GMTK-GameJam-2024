@@ -11,9 +11,9 @@ func _ready():
 	concept_ui.col_count = 14
 	for i in range(84):
 		concept_ui.create_slot()
-		
+
 	concept_ui.clear_grid()
-	
+
 # callback function
 func _process(_delta):
 	if Input.is_action_just_pressed("Pause"):
@@ -35,7 +35,7 @@ func _on_packitup_button_pressed():
 	TransitionScene.transition()
 	await TransitionScene.on_transition_finished
 	# debug msg
-	print("Level " + str(Global.levelCount) + " passed!")
+	#print("Level " + str(Global.levelCount) + " passed!")
 	
 	## storing score in placeholder int
 	#Global.scorekeeper = Global._calculateScore()

@@ -1,16 +1,175 @@
-[gd_scene load_steps=8 format=3 uid="uid://pc52mcamwith"]
+[gd_scene load_steps=23 format=3 uid="uid://pc52mcamwith"]
 
 [ext_resource type="Script" path="res://Scripts/Main/main_scene_3.gd" id="1_hgl52"]
-[ext_resource type="Script" path="res://Scripts/global.gd" id="2_vd3ud"]
+[ext_resource type="Texture2D" uid="uid://cy5hdufajwxfk" path="res://Assets/Art/Crystal Cave.png" id="2_dxdgq"]
+[ext_resource type="Texture2D" uid="uid://b5ybdkoav5wg7" path="res://Assets/Art/1.png" id="2_i3esc"]
+[ext_resource type="Texture2D" uid="uid://mvviohex01kj" path="res://Assets/Art/Combined_no_Title.png" id="3_2057x"]
 [ext_resource type="PackedScene" uid="uid://ehjw00nb4qx" path="res://Scenes/Grid/concept_ui.tscn" id="3_k3on8"]
-[ext_resource type="Script" path="res://Scripts/Dialogic/dialogic.gd" id="3_oxwf1"]
-[ext_resource type="AudioStream" uid="uid://dn0annnj17k6w" path="res://750217__nancy_sinclair__emotional-piano-and-haunting-strings.mp3" id="4_2r4xi"]
-[ext_resource type="AudioStream" uid="uid://vjnshk7ft7ib" path="res://switch17.wav" id="5_yd8tt"]
-[ext_resource type="PackedScene" uid="uid://ofvxc8p1xp4t" path="res://Scenes/pause_menu.tscn" id="6_g2jwl"]
+[ext_resource type="Texture2D" uid="uid://cdjps5pbrpthd" path="res://Assets/Art/Level3eventwithoutdragon-export.png" id="3_wup20"]
+[ext_resource type="AudioStream" uid="uid://dn0annnj17k6w" path="res://Audio/750217__nancy_sinclair__emotional-piano-and-haunting-strings.mp3" id="4_2r4xi"]
+[ext_resource type="Shader" path="res://Scenes/Shaders/ShaderOverlay.gdshader" id="4_d0dit"]
+[ext_resource type="AudioStream" uid="uid://vjnshk7ft7ib" path="res://Audio/switch17.wav" id="5_yd8tt"]
+[ext_resource type="PackedScene" uid="uid://ofvxc8p1xp4t" path="res://Scenes/Pause/pause_menu.tscn" id="6_g2jwl"]
+[ext_resource type="Texture2D" uid="uid://cycn7grxhvhgx" path="res://Assets/Art/fly_ready1-sheet.png" id="9_ebeml"]
+[ext_resource type="Texture2D" uid="uid://btidxxymomm5y" path="res://Assets/Art/gold_hoard.png" id="13_cxv6r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyajw"]
+atlas = ExtResource("9_ebeml")
+region = Rect2(0, 0, 240, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8jtu"]
+atlas = ExtResource("9_ebeml")
+region = Rect2(240, 0, 240, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obc24"]
+atlas = ExtResource("9_ebeml")
+region = Rect2(480, 0, 240, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq2cj"]
+atlas = ExtResource("9_ebeml")
+region = Rect2(720, 0, 240, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0rdv"]
+atlas = ExtResource("9_ebeml")
+region = Rect2(960, 0, 240, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5b0w"]
+atlas = ExtResource("9_ebeml")
+region = Rect2(1200, 0, 240, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn08i"]
+atlas = ExtResource("9_ebeml")
+region = Rect2(1440, 0, 240, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_488rp"]
+atlas = ExtResource("9_ebeml")
+region = Rect2(1680, 0, 240, 224)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4h051"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyajw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8jtu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obc24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bq2cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0rdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5b0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn08i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_488rp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_278mx"]
+shader = ExtResource("4_d0dit")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.2
+shader_parameter/scanlines_width = 0.15
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(1920, 1080)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 1.0
+shader_parameter/roll_size = 6.0
+shader_parameter/roll_variation = 1.249
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.187
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.01
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.1
+shader_parameter/vignette_opacity = 1.0
 
 [node name="Main Scene 3" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_hgl52")
+
+[node name="CanvasLayer4" type="CanvasLayer" parent="."]
+
+[node name="SceneSetting" type="TextureRect" parent="CanvasLayer4"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_dxdgq")
+
+[node name="BackHoard" type="TextureRect" parent="CanvasLayer4"]
+self_modulate = Color(1, 1, 1, 0.513726)
+offset_left = 288.0
+offset_top = 728.0
+offset_right = 636.0
+offset_bottom = 936.0
+texture = ExtResource("13_cxv6r")
+expand_mode = 1
+
+[node name="MidHoard" type="TextureRect" parent="CanvasLayer4"]
+self_modulate = Color(1, 1, 1, 0.764706)
+offset_left = 464.0
+offset_top = 816.0
+offset_right = 888.0
+offset_bottom = 1024.0
+texture = ExtResource("13_cxv6r")
+expand_mode = 1
+
+[node name="FrontHoard" type="TextureRect" parent="CanvasLayer4"]
+self_modulate = Color(1, 1, 1, 0.921569)
+offset_left = 184.0
+offset_top = 816.0
+offset_right = 576.0
+offset_bottom = 1024.0
+texture = ExtResource("13_cxv6r")
+expand_mode = 1
+
+[node name="Frame" type="TextureRect" parent="CanvasLayer4"]
+offset_left = 960.0
+offset_top = -32.0
+offset_right = 1976.0
+offset_bottom = 576.0
+texture = ExtResource("3_2057x")
+expand_mode = 1
+
+[node name="Background" type="TextureRect" parent="CanvasLayer4"]
+offset_left = 1080.0
+offset_top = 64.0
+offset_right = 1856.0
+offset_bottom = 504.0
+texture = ExtResource("3_wup20")
+expand_mode = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer4"]
+position = Vector2(1560, 280)
+scale = Vector2(1.73333, 1.85714)
+sprite_frames = SubResource("SpriteFrames_4h051")
+autoplay = "default"
+flip_h = true
+
+[node name="OverlayShader" type="TextureRect" parent="CanvasLayer4"]
+material = SubResource("ShaderMaterial_278mx")
+offset_left = 1080.0
+offset_top = 64.0
+offset_right = 1856.0
+offset_bottom = 504.0
+texture = ExtResource("2_i3esc")
+expand_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
@@ -22,22 +181,11 @@ visible = false
 layer = 2
 
 [node name="Dialogic" type="Node" parent="CanvasLayer2"]
-script = ExtResource("3_oxwf1")
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 
 [node name="ConceptUI" parent="CanvasLayer3" instance=ExtResource("3_k3on8")]
 process_mode = 1
-
-[node name="Score" type="Label" parent="."]
-offset_left = 1472.0
-offset_right = 1856.0
-offset_bottom = 64.0
-theme_override_font_sizes/font_size = 40
-text = "Score: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("2_vd3ud")
 
 [node name="music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_2r4xi")

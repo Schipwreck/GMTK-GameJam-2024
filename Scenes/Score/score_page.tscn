@@ -1,8 +1,70 @@
-[gd_scene load_steps=14 format=3 uid="uid://ck2wdewkt3an5"]
+[gd_scene load_steps=27 format=3 uid="uid://ck2wdewkt3an5"]
 
-[ext_resource type="Script" path="res://Scripts/global.gd" id="1_se2r3"]
+[ext_resource type="Script" path="res://Scripts/Main/global.gd" id="1_se2r3"]
+[ext_resource type="Texture2D" uid="uid://cv37gdfgm0egk" path="res://Assets/Animations/portal4_atlas.png" id="2_7a1rx"]
 [ext_resource type="Script" path="res://Scripts/Score/score_page.gd" id="2_t6xn7"]
+[ext_resource type="Texture2D" uid="uid://b75ksavo4yd3w" path="res://Assets/Background/Forest Background.png" id="2_to8qu"]
+[ext_resource type="Texture2D" uid="uid://d0jbqj8npp6no" path="res://Assets/Art/front.png" id="3_0p11y"]
+[ext_resource type="FontFile" uid="uid://bojdo3yh6x40l" path="res://Assets/Font/alagard.ttf" id="5_gson7"]
 [ext_resource type="Texture2D" uid="uid://cqskyr6gusvkj" path="res://Assets/Stars/star spritesheet.png" id="5_k8wqm"]
+[ext_resource type="Theme" uid="uid://ba3nbvmkw7acy" path="res://Assets/Themes/Buttons.tres" id="7_e4i1j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e4gi"]
+atlas = ExtResource("2_7a1rx")
+region = Rect2(384, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbpag"]
+atlas = ExtResource("2_7a1rx")
+region = Rect2(320, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usqab"]
+atlas = ExtResource("2_7a1rx")
+region = Rect2(256, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cbxu"]
+atlas = ExtResource("2_7a1rx")
+region = Rect2(192, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6l42"]
+atlas = ExtResource("2_7a1rx")
+region = Rect2(128, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdt6t"]
+atlas = ExtResource("2_7a1rx")
+region = Rect2(64, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2t08"]
+atlas = ExtResource("2_7a1rx")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_euk63"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0e4gi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbpag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usqab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cbxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6l42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdt6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2t08")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v6h5k"]
 atlas = ExtResource("5_k8wqm")
@@ -152,6 +214,23 @@ _data = {
 [node name="ScorePage" type="Node2D"]
 script = ExtResource("2_t6xn7")
 
+[node name="Backdrop" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 824.0
+texture = ExtResource("2_to8qu")
+
+[node name="Warp Portal" type="AnimatedSprite2D" parent="."]
+position = Vector2(974, 574)
+scale = Vector2(10.4375, 12.4375)
+sprite_frames = SubResource("SpriteFrames_euk63")
+autoplay = "default"
+frame_progress = 0.612781
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_0p11y")
+
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -194,6 +273,7 @@ alignment = 1
 
 [node name="Score" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_gson7")
 theme_override_font_sizes/font_size = 60
 text = "Score: 0"
 script = ExtResource("1_se2r3")
@@ -222,6 +302,8 @@ custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("7_e4i1j")
+theme_override_fonts/font = ExtResource("5_gson7")
 theme_override_font_sizes/font_size = 32
 text = "Continue"
 script = ExtResource("1_se2r3")
